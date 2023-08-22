@@ -1,19 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Generated VR Scene</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-</head>
-<body>
-    <div id="loading-screen">
-        <input type="text" id="search-input" placeholder="Enter search term">
-        <button id="search-button">Search</button>
+<html>
+    <head>
+        <style>
+            #initial{
+                display: none;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+        
+        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+        <script type="importmap">
+        {
+            "imports": {
+            "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+            }
+        }
+        </script>
+    </head>
+  <body>
+    <div id="initial">
+        <a-scene log="scene rendererd!">
+            <!-- Preset: none, default, contact, egypt, checkerboard, forest, goaland, 
+                yavapai, goldmine, threetowers, poison, arches, tron, japan, 
+                dream, volcano, starry, osiris, moon -->
+            <!-- dressing: none, cubes, pyramids, cylinders, 
+                towers, mushrooms, trees, apparatus, torii -->
+            <a-entity log="entity rendererd!"
+                environment="preset: dream; 
+                            groundTexture: walkernoise;
+                            groundColor: #00b5ec;
+                            groundColor2: #33ac6a; 
+                            skyColor: #33ac6a;
+                            skyType: atmosphere;
+                            lighting: distant;
+                            dressing: none;
+                            shadow: true;
+                            fog:0.5;
+                            grid: dots">
+
+                            <a-plane log="plane rendered!"
+                                position="0 3.5 -4" rotation="0 0 0" 
+                                width="4" height="2" color="#e43a24" opacity="0.2" 
+                                animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500" >
+                                <a-text position="-1.8 0.75 0" value="to add text and list items"></a-text>
+                            </a-plane> 
+                            
+            </a-entity>
+          </a-scene>
+            <audio id="bgmaudio" autoplay loop>
+                <bgsound id="bgmsound" loop="infinite">
+              </audio>
     </div>
-    <a-scene id="vr-scene">
-        <!-- 360-degree image will be added dynamically here -->
-    </a-scene>
-    <script src="app.js"></script>
-</body>
+    <div id="intro">
+        <a-scene>
+            <a-scene background="color: #1ab0aa;">
+                <a-assets>
+                    <a-mixin id="frame-edge" geometry="primitive: box; depth: 10; height: 0.1; width: 0.1" material="color: #black"></a-mixin>
+                </a-assets>
+                <a-entity>
+                    <a-camera fov="80" near="0.1" wasd-controls-enabled="false"></a-camera>
+                </a-entity>
+                
+                <a-entity id="logo" position="0 1.6 -1" scale=".5 .5 .5">
+                    <a-entity id="box" animation__scale="property: scale; to: 1 1 1; delay: 500; dur: 500; easing: easeOutCubic" animation__position="property: position; to: 0 0 0; delay: 500; dur: 500; easing: easeOutCubic" animation__rotation="property: rotation; to: 30 54 36; delay: 500; dur: 1200; easing: easeOutCubic" scale="0 0 0" position="0 -0.5 0" rotation="0 -300 0">
+                        <a-box width="0.25" depth="0.25" height="0.25" color="cyan"></a-box>
+                        <a-entity scale="0.04 0.04 0.04">
+                            <a-entity mixin="frame-edge" position="5 5 0" rotation="0 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="5 -5 0" rotation="0 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="-5 5 0" rotation="0 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="-5 -5 0" rotation="0 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="0 5 5" rotation="0 90 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="0 5 -5" rotation="0 90 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="0 -5 5" rotation="0 90 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="0 -5 -5" rotation="0 90 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="5 0 5" rotation="90 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="5 0 -5" rotation="90 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="-5 0 5" rotation="90 0 0"></a-entity>
+                            <a-entity mixin="frame-edge" position="-5 0 -5" rotation="90 0 0"></a-entity>
+                        </a-entity>
+                    </a-entity>
+                    <a-entity id="dots1" rotation="0 0 45" animation="property: scale; to: 1 0.6 1; delay: 800; dur: 750; easing: easeOutCubic" scale="1 0 1">
+                        <a-cylinder position="0 2 0" radius="0.04" height="2" color="cyan" open-ended="true" side="double" animation="property: scale; to: 1 0 1; delay: 800; dur: 750; easing: easeOutCubic"></a-cylinder>
+                        <a-cylinder position="0 -2 0" radius="0.04" height="2" color="cyan" open-ended="true" side="double" animation="property: scale; to: 1 0 1; delay: 800; dur: 750; easing: easeOutCubic"></a-cylinder>
+                    </a-entity>
+                    <a-entity id="dots1" rotation="0 0 -45" animation="property: scale; from: 1 0 1; to: 1 0.6 1; delay: 800; dur: 750; easing: easeOutCubic" scale="1 0 1">
+                        <a-cylinder position="0 2 0" radius="0.04" height="2" color="cyan" open-ended="true" side="double" animation="property: scale; to: 1 0 1; delay: 800; dur: 750; easing: easeOutCubic" scale="1 1.25 1"></a-cylinder>
+                        <a-cylinder position="0 -2 0" radius="0.04" height="2" color="cyan" open-ended="true" side="double" animation="property: scale; to: 1 0 1; delay: 800; dur: 750; easing: easeOutCubic" scale="1 1.25 1"></a-cylinder>
+                    </a-entity>
+                    <a-plane height="0.2" width="1" position="0 -3 0"  color="white"
+                    animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" 
+                    animation__position="property: position; to: 0 -0.7 0; delay: 1000; dur: 1000; easing: easeOutCubic">
+                        <a-image height="0.2" width="1" position="0 0 0" src="assets/images/zenotilogo.png">
+                        </a-image>
+                    </a-plane> 
+                </a-entity>
+                <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
+                <a-light type="ambient" color="#fff"></a-light>
+            </a-scene>
+        </a-scene>
+    </div>
+    <script>
+        AFRAME.registerComponent('log', {
+            schema: {type: 'string'},
+
+            init: function () {
+                var stringToLog = this.data;
+                console.log(stringToLog);
+            }
+        });
+        setTimeout(() => {
+            $("#intro").hide();
+            $("#initial").show();
+        }, 3500);
+    </script>
+  </body>
 </html>
+
+
+<!-- <a-entity foo></a-entity>
+<a-plane position="0 0 -10" rotation="0 0 0" width="4" height="4" color="red"></a-plane>
+<a-sky color="lightgrey"></a-sky>
+<a-cylinder position="2 0 -10" radius="0.8" height="1.5" color="grey"></a-cylinder>
+<a-box position="-5 0 -10" rotation="10 60 0" color="#4CC3D9" height="4" width="4" depth="4"></a-box> -->
+
+<!-- <a-box color="red" position="0 2 -5" rotation="0 45 45" scale="2 2 2"></a-box> -->
+
+<!-- Out of the box environment! -->
