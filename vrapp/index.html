@@ -103,20 +103,7 @@
             </a-scene>
         </a-scene>
     </div>
-    <script>
-        AFRAME.registerComponent('log', {
-            schema: {type: 'string'},
-
-            init: function () {
-                var stringToLog = this.data;
-                console.log(stringToLog);
-            }
-        });
-        setTimeout(() => {
-            $("#intro").hide();
-            $("#initial").show();
-        }, 3500);
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
 
