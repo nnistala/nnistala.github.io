@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "license": "MIT",
   "scripts": {
-    "start": "five-server",
+    "start": "five-server --port=5000",
     "deploy": "ghpages",
     "ghpages": "ghpages"
   },
