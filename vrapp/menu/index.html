@@ -43,7 +43,20 @@
                         
         </a-entity>
 
-        <a-entity laser-controls raycaster="lineColor: red; lineOpacity: 0.5"></a-entity>
+        <a-entity
+          id="leftHand"
+          oculus-touch-controls="hand: left"
+          raycaster="showLine: true; far: 100; interval: 100"
+          laser-controls raycaster="objects: .links; far: 5"
+        ></a-entity>
+
+        <a-entity
+          id="rightHand"
+          oculus-touch-controls="hand: right"
+          raycaster="showLine: true; far: 100; interval: 100"
+          laser-controls raycaster="objects: .links; far: 5"
+        >
+        </a-entity>
 
 
     </a-scene>
