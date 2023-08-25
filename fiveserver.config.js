@@ -1,5 +1,5 @@
 module.exports = {
-    watch: 'vrapp',
+    watch: '/',
     port: 8086,
     https: true
 }
