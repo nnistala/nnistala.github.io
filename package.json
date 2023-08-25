@@ -1,0 +1,14 @@
+{
+  "name": "vrapp",
+  "description": "VR app.",
+  "version": "0.3.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "five-server",
+    "deploy": "ghpages",
+    "ghpages": "ghpages"
+  },
+  "devDependencies": {
+    "five-server": "^0.3.1"
+  }
+}
