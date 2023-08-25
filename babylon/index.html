@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+</head>
+<body>
+  <a-scene background="color: #888888">
+    <!-- Text Input Bar -->
+    <a-entity position="0 1.6 -4">
+      <a-entity id="input-bar" geometry="primitive: plane; width: 3; height: 0.2" material="color: white"></a-entity>
+      <a-text value="Search: " position="-1.2 0 0.01"></a-text>
+      <a-entity id="search-input" geometry="primitive: plane; width: 1.5; height: 0.15" material="color: #EFEFEF" text="value: ""; width: 2.5"></a-entity>
+      <a-text value="Back" position="1.2 0 0.01" id="back-button" class="clickable"></a-text>
+      <a-text value="Mic" position="1.4 -0.5 0.01" id="mic-button" class="clickable"></a-text>
+      <a-text value="Search" position="1.4 -1 0.01" id="search-button" class="clickable"></a-text>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    // Babylon.js scene setup
+    const canvas = document.createElement("canvas");
+    const engine = new BABYLON.Engine(canvas, true);
+    const scene = new BABYLON.Scene(engine);
+    const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 4, 4, new BABYLON.Vector3(0, 0, 0), scene);
+    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+    
+    // A-Frame interaction setup
+    AFRAME.registerComponent('clickable', {
+      init: function () {
+        const el = this.el;
+        el.addEventListener('click', function () {
+          const elementId = el.getAttribute('id');
+          if (elementId === 'back-button') {
+            // Handle back button click
+          } else if (elementId === 'mic-button') {
+            // Handle mic button click
+            startSpeechRecognition();
+          } else if (elementId === 'search-button') {
+            // Handle search button click
+            const inputText = document.getElementById('search-input').getAttribute('text').value;
+            console.log('Search Text:', inputText);
+          }
+        });
+      }
+    });
+
+    function startSpeechRecognition() {
+      // You need to integrate a speech recognition API here
+      // For example, you can use Web Speech API for browser-based speech recognition
+      // Here's a basic example:
+      const recognition = new webkitSpeechRecognition(); // Change to SpeechRecognition for non-webkit browsers
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = function(event) {
+        const spokenText = event.results[0][0].transcript;
+        document.getElementById('search-input').setAttribute('text', 'value', spokenText);
+      };
+      
+      recognition.start();
+    }
+    
+    // Render the Babylon.js scene
+    engine.runRenderLoop(function () {
+      scene.render();
+    });
+  </script>
+</body>
+</html>
