@@ -12,11 +12,11 @@
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     
     <!-- import custom javascript files -->
-    <script type="text/javascript" src="/menu/fitness/handworkout/cubeSpawner.js"></script>
-    <script type="text/javascript" src="/menu/fitness/handworkout/cubeDestroyer.js"></script>
-    <script type="text/javascript" src="/menu/fitness/handworkout/cubeMovement.js"></script>
-    <script type="text/javascript" src="/menu/fitness/handworkout/saber.js"></script>
-    <script type="text/javascript" src="/menu/fitness/handworkout/scoreCounter.js"></script>    
+    <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeSpawner.js"></script>
+    <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeDestroyer.js"></script>
+    <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeMovement.js"></script>
+    <script type="text/javascript" src="saber.js"></script>
+    <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/scoreCounter.js"></script>
     
   </head>
   <body>
@@ -25,19 +25,19 @@
              cubespawner
              scorecounter>
       <a-assets>
-        <img id="sechelt" crossorigin="anonymous" src="/menu/fitness/assets/images/background-galaxy.png">
+        <!-- <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"> -->
+        <img id="sechelt" crossorigin="anonymous" src="/vrapp/menu/fitness/handworkout/assets/images/background-galaxy.png">
         <a-mixin id="cube"
                  class="cubes"
                  geometry="primitive: box"
                  position="0 1 -25"
-                 scale="0.1 0.1 0.1"
-                 rotation="0 0 0"
+                 scale="0.4 0.4 0.4"
                  cubemovement
                  cubedestroyer
         ></a-mixin>
       </a-assets>
 
-      <a-camera  position="0 0 0"></a-camera>
+      <a-camera></a-camera>
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
       
