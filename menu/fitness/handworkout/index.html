@@ -29,7 +29,7 @@
         <a-mixin id="cube"
                  class="cubes"
                  geometry="primitive: box"
-                 position="0 1 -25"
+                 position="0 0.1 -25"
                  scale="0.1 0.1 0.1"
                  rotation="0 0 0"
                  cubemovement
@@ -41,10 +41,10 @@
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
       
-      <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
+      <a-entity id="score" text="value: Score: 0" position="0 0.5 -1"></a-entity>
       
       <a-entity hand-controls="left">
-        <a-entity position="0 0.5 -0.5"
+        <a-entity position="0 0 -0.5"
                   rotation="-45 0 0">
           <a-box id="redSaber" 
                  color="red" 

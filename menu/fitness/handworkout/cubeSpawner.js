@@ -65,7 +65,7 @@ AFRAME.registerComponent("cubespawner", {
       y: positionY,
       z: positionZ,
     });
-    cubeEl.setAttribute("rotation", { x: -45, y: 0, z: 0 });
+    cubeEl.setAttribute("rotation", { x: 0, y: 0, z: 0 });
     cubeEl.setAttribute("material", `color: ${cubeColor}`);
     cubeEl.setAttribute("class", "cubes");
     cubeEl.play();
