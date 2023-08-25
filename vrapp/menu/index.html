@@ -43,17 +43,8 @@
                         
         </a-entity>
 
-        <a-entity
-          id="leftHand"
-          motion-capture-hand="hand: left; model: false;"
-          hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
-        ></a-entity>
-        <a-entity
-          id="rightHand"
-          motion-capture-hand="hand: right; model: false;"
-          hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"
-        ></a-entity>
-
+        <a-entity id="leftHand" oculus-touch-controls="hand: left"></a-entity>
+        <a-entity id="rightHand" oculus-touch-controls="hand: right"></a-entity>
 
     </a-scene>
 
