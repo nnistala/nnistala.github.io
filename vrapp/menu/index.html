@@ -43,27 +43,7 @@
                         
         </a-entity>
 
-        <a-entity
-          id="leftHand"
-          oculus-touch-controls="hand: left"
-          raycaster="showLine: true; far: 100; interval: 100"
-        >
-          <!-- Create a focus line for the left hand controller -->
-          <a-entity
-            line="color: #00ff00; opacity: 0.6; startEvents: raycaster-intersected; endEvents: raycaster-intersected-cleared"
-          ></a-entity>
-        </a-entity>
-
-        <a-entity
-          id="rightHand"
-          oculus-touch-controls="hand: right"
-          raycaster="showLine: true; far: 100; interval: 100"
-        >
-          <!-- Create a focus line for the right hand controller -->
-          <a-entity
-            line="color: #00ff00; opacity: 0.6; startEvents: raycaster-intersected; endEvents: raycaster-intersected-cleared"
-          ></a-entity>
-        </a-entity>
+        <a-entity laser-controls raycaster="lineColor: red; lineOpacity: 0.5"></a-entity>
 
 
     </a-scene>
