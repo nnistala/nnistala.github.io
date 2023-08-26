@@ -15,7 +15,6 @@
   </head>
   <body>
     <a-scene log="scene rendererd!" cursor="rayOrigin: mouse">
-      <!-- Panel -->
       <a-entity log="entity rendererd!"
         environment="preset: starry;
                     groundTexture: walkernoise;
@@ -34,11 +33,10 @@
                         position="0 2.5 -3" rotation="0 0 0" 
                         width="3.5" height="2" opacity="0.4"  geometry="primitive: box" material="color: #FAFAFA"
                         animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500"
-                        id="menu-panel" intersect-color-change>
-                        <!-- Menu Items -->
-                        <a-text position="-0.5 0.60 0" value="Therapy" id="therapy-menu"></a-text>
-                        <a-text position="-0.5 0.00 0" value="Fitness" id="fitness-menu"></a-text>
-                        <a-text position="-0.5 -0.60 0" value="Exit" id="exit-menu"></a-text>
+                        id="menu-panel" intersect-color-change collision-check>
+                        <a-link position="-0.5 0.60 0" title="Therapy" id="therapy-menu" href="/menutest"></a-link>
+                        <a-link position="-0.5 0.00 0" title="Fitness" id="fitness-menu"></a-link>
+                        <a-link position="-0.5 -0.60 0" title="Exit" id="exit-menu"></a-link>
                     </a-plane> 
                         
         </a-entity>
