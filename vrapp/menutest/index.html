@@ -89,8 +89,9 @@ AFRAME.registerComponent('intersect-color-change', {
       <a-light position="0 0.5 1" intensity="0.75"></a-light>
 
       <a-entity position="0 0 -10">
-        <a-mixin id="box" geometry="primitive: box" material="color: #FAFAFA" rotation="0 0 0" scale="2.5 2.5 0.5" intersect-color-change ></a-mixin>
-        <a-entity boxes></a-entity>
+        <a-mixin id="box" geometry="primitive: box" material="color: #FAFAFA" rotation="0 0 0" scale="6 2 0.5" intersect-color-change ></a-mixin>
+        <a-entity boxes value="Hello, World!">
+        </a-entity>
 
 
       </a-entity>

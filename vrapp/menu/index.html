@@ -62,6 +62,7 @@
                 position="0 0 0"
                 panel-rounded="0.4"
                 font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
+                intersect-color-change
             >           >
             </a-gui-label>
              <a-gui-label
@@ -73,6 +74,7 @@
                 margin="0 0 0.5 0"
                 position="0 -1 0"
                 font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
+                intersect-color-change
             >
             </a-gui-label>
 
@@ -89,5 +91,32 @@
             console.log("in onClick!!");
             window.open("/vrapp/menutest/index.html", "_self");
           }
+
+          AFRAME.registerComponent('intersect-color-change', {
+              init: function () {
+                var el = this.el;
+                var material = el.getAttribute('material');
+                var initialColor = material.color;
+                var self = this;
+
+                el.addEventListener('mousedown', function (evt) {
+                  el.setAttribute('material', 'color', '#EF2D5E');
+                });
+
+                el.addEventListener('mouseup', function (evt) {
+                  el.setAttribute('material', 'color', self.isMouseEnter ? '#24CAFF' : initialColor);
+                });
+
+                el.addEventListener('mouseenter', function () {
+                  el.setAttribute('material', 'color', '#24CAFF');
+                  self.isMouseEnter = true;
+                });
+
+                el.addEventListener('mouseleave', function () {
+                  el.setAttribute('material', 'color', initialColor);
+                  self.isMouseEnter = false;
+                });
+              }
+            });
   </script>
 </html>
