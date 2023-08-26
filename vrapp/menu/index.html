@@ -77,9 +77,17 @@
 
         </a-gui-flex-container>
 
-        <a-entity position="0 1.6 0" camera look-controls wasd-controls></a-entity>
-        <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [mixin='box']"></a-entity>
-        <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [mixin='box']" line="color: #118A7E"></a-entity>
+        <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+    <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+    <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+    <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+
+    <!-- Camera + cursor. -->
+    <a-entity id="cameraRig" position="0 1.6 0">
+      <a-camera look-controls wasd-controls position="0 0 0">
+      </a-camera> <!-- /camera -->
+    </a-entity>
+        
     </a-scene>
   </body>
   <script type="text/javascript">
