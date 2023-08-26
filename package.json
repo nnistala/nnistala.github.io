@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "five-server": "^0.3.1"
+  },
+  "dependencies": {
+    "aframe-haptics-component": "^1.6.3"
   }
 }
