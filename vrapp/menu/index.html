@@ -47,7 +47,7 @@
                 margin="0 0 0.5 0"
                 position="0 1 0"
                 panel-rounded="0.4"
-                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
                 hover-color="yellow"
                 onclick="buttonActionFunction"
             >
@@ -61,7 +61,7 @@
                 margin="0 0 0.5 0"
                 position="0 0 0"
                 panel-rounded="0.4"
-                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
             >           >
             </a-gui-label>
              <a-gui-label
@@ -72,7 +72,7 @@
                 letter-spacing="0"
                 margin="0 0 0.5 0"
                 position="0 -1 0"
-                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
             >
             </a-gui-label>
 
@@ -84,10 +84,10 @@
     </a-scene>
   </body>
   <script type="text/javascript">
-      function buttonActionFunction(){
-        alert("heyy!!");
-        console.log("in onClick!!");
-        window.open("/vrapp/menutest/index.html", "_self");
-      }
+        window.buttonActionFunction= function(){
+            alert("heyy!!");
+            console.log("in onClick!!");
+            window.open("/vrapp/menutest/index.html", "_self");
+          }
   </script>
 </html>

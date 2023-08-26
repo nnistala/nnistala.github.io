@@ -4,43 +4,40 @@
     <meta charset="utf-8">
     <title>Laser Controls</title>
     <meta name="description" content="Laser Controls - A-Frame">
-    <script src="../../../dist/aframe-master.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script>
-        
-        /* global AFRAME */
+      
+      /* global AFRAME */
 
-        /**
-        * Change color if entity when intersected by raycaster.
-        */
-        AFRAME.registerComponent('intersect-color-change', {
-        init: function () {
-        var el = this.el;
-        var material = el.getAttribute('material');
-        var initialColor = material.color;
-        var self = this;
+/**
+ * Change color if entity when intersected by raycaster.
+ */
+AFRAME.registerComponent('intersect-color-change', {
+  init: function () {
+    var el = this.el;
+    var material = el.getAttribute('material');
+    var initialColor = material.color;
+    var self = this;
 
-        el.addEventListener('mousedown', function (evt) {
-          el.setAttribute('material', 'color', '#EF2D5E');
-        });
+    el.addEventListener('mousedown', function (evt) {
+      el.setAttribute('material', 'color', '#EF2D5E');
+    });
 
-        el.addEventListener('mouseup', function (evt) {
-          el.setAttribute('material', 'color', self.isMouseEnter ? '#24CAFF' : initialColor);
-        });
+    el.addEventListener('mouseup', function (evt) {
+      el.setAttribute('material', 'color', self.isMouseEnter ? '#24CAFF' : initialColor);
+    });
 
-        el.addEventListener('mouseenter', function () {
-          el.setAttribute('material', 'color', '#24CAFF');
-          self.isMouseEnter = true;
-        });
+    el.addEventListener('mouseenter', function () {
+      el.setAttribute('material', 'color', '#24CAFF');
+      self.isMouseEnter = true;
+    });
 
-        el.addEventListener('mouseleave', function () {
-          el.setAttribute('material', 'color', initialColor);
-          self.isMouseEnter = false;
-        });
-        }
-        });
-
+    el.addEventListener('mouseleave', function () {
+      el.setAttribute('material', 'color', initialColor);
+      self.isMouseEnter = false;
+    });
+  }
+});
     </script>
   </head>
   <body>
@@ -49,15 +46,15 @@
       AFRAME.registerComponent('boxes', {
         init: function () {
           var box;
-          var columns = 20;
+          var columns = 1;
           var el = this.el;
           var i;
           var j;
-          var rows = 15;
+          var rows = 1;
 
           if (el.sceneEl.isMobile) {
-            columns = 10;
-            rows = 5;
+            columns = 1;
+            rows = 1;
           };
 
           for (x = columns / -2; x < columns / 2; x++) {
@@ -91,18 +88,11 @@
 
       <a-light position="0 0.5 1" intensity="0.75"></a-light>
 
-      <a-entity position="0 -1.6 -10">
-        <a-mixin id="box" geometry="primitive: box" material="color: #FAFAFA" rotation="0 0 -35" scale="0.5 0.5 0.5" intersect-color-change shadow="cast: true; receive: false"></a-mixin>
+      <a-entity position="0 0 -10">
+        <a-mixin id="box" geometry="primitive: box" material="color: #FAFAFA" rotation="0 0 0" scale="2.5 2.5 0.5" intersect-color-change ></a-mixin>
         <a-entity boxes></a-entity>
 
-        <a-circle rotation="-90 0 0" radius="20" color="#666" position="0 -0.1 0" shadow="receive: true" roughness="1"></a-circle>
 
-        <a-light type="point" position="0 10 -30" intensity="0.85" shadow-if-mobile></a-light>
-
-        <a-torus radius="20" arc="190" rotation="0 90 0" animation="property: rotation; to: 0 450 0; loop: true; dur: 16000; easing: linear"></a-torus>
-        <a-torus radius="20" arc="190" rotation="0 45 0" animation="property: rotation; to: 0 405 0; loop: true; dur: 16000; easing: linear"></a-torus>
-        <a-torus radius="20" arc="190" rotation="0 135 0" animation="property: rotation; to: 0 495 0; dir: reverse; loop: true; dur: 16000; easing: linear"></a-torus>
-        <a-torus radius="20" arc="360" rotation="-90 0 0"></a-torus>
       </a-entity>
     </a-scene>
   </body>

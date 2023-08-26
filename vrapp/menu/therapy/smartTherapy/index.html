@@ -45,6 +45,19 @@
                           <a-gui-button width="0.7" height="0.3" font-color="white" border-color="black" value="Search" id="search-button" class="clickable"></a-gui-button>
                           <a-gui-button width="0.5" height="0.3" font-color="white" border-color="black" value="Back" id="back-button" class="clickable"></a-gui-button>
                         </a-gui-flex-container>
+
+                        <a-entity id="cameraRig" position="0 1.6 0">
+                            <a-camera look-controls wasd-controls position="0 0 0">
+                                <a-gui-cursor id="cursor"
+                                          raycaster="objects: [gui-interactable]"
+                                          fuse="true" fuse-timeout="2000"
+                                          color="#ECEFF1"
+                                          hover-color="#CFD8DC"
+                                          active-color="#607D8B"
+                                          design="ring" > <!-- dot, ring, reticle, cross  -->
+                                </a-gui-cursor> <!-- /cursor -->
+                            </a-camera> <!-- /camera -->
+                        </a-entity>
                         
                     
     <!-- </a-entity> -->
