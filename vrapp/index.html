@@ -23,7 +23,7 @@
     </head>
   <body>
     <div id="initial">
-        <a-scene log="scene rendererd!">
+        <a-scene log="scene rendererd!" vr-mode-ui="enterVRButton: #myEnterVRButton;">
             <!-- Preset: none, default, contact, egypt, checkerboard, forest, goaland, 
                 yavapai, goldmine, threetowers, poison, arches, tron, japan, 
                 dream, volcano, starry, osiris, moon -->
@@ -50,6 +50,7 @@
                             </a-plane> 
                             
             </a-entity>
+            <a id="myEnterVRButton" href="#"></a>
           </a-scene>
             <audio id="bgmaudio" autoplay loop>
                 <bgsound id="bgmsound" loop="infinite">
