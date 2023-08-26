@@ -7,7 +7,7 @@ AFRAME.registerComponent('saber', {
       
       saberEl.addEventListener('hitstart', function () {
         var obj = saberEl.components['aabb-collider']['intersectedEls'][0];
-        var mat = obj.getAttribute('material');
+        var mat = obj.getAttribute('saber');
         
         if (saberColor == mat.color) {
           saberEl.emit('sabercollided');
