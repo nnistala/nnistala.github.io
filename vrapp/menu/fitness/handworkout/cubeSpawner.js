@@ -54,7 +54,7 @@ function getRandomNumber(value, offset) {
       }
       
       
-      var cubeColor = this.isLeft ? leftColors[index]: rightColors[index];
+      var cubeColor = this.isLeft ? leftColors[index]: leftColors[index];
       
       cubeEl.setAttribute('position', {x: positionX, y: positionY, z: positionZ});
       cubeEl.setAttribute('material', `color: ${cubeColor}`);
