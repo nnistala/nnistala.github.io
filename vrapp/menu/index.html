@@ -4,6 +4,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script async src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <script type="importmap">
       {
         "imports": {
@@ -14,7 +15,7 @@
     </script>
   </head>
   <body>
-    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse">
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env>
       <a-entity log="entity rendererd!"
         environment="preset: starry;
                     groundTexture: walkernoise;
@@ -28,54 +29,53 @@
                     shadow: true;
                     fog:0.5;
                     grid: dots">
-
-                    <a-plane log="plane rendered!"
-                        position="0 2.5 -3" rotation="0 0 0" 
-                        width="3.5" height="2" opacity="0.4"  geometry="primitive: box" material="color: #FAFAFA"
-                        animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500"
-                        id="menu-panel" intersect-color-change collision-check>
-                        <a-link position="-0.5 0.60 0" title="Therapy" id="therapy-menu" href="/menutest"></a-link>
-                        <a-link position="-0.5 0.00 0" title="Fitness" id="fitness-menu"></a-link>
-                        <a-link position="-0.5 -0.60 0" title="Exit" id="exit-menu"></a-link>
-                    </a-plane> 
-                        
+                   
         </a-entity>
+
+        <a-gui-flex-container
+            flex-direction="row" justify-content="center" align-items="normal" component-padding="0.1"
+            opacity="0.5" width="3.5" height="4" panel-color="#000" panel-rounded="0.1"
+            position="0 3 -5" rotation="0 0 0"
+            >
+            <a-gui-label
+                width="3" height="0.75"
+                value="Therapy"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.25"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 1 0"
+            >
+            </a-gui-label>
+            <a-gui-label
+                width="3" height="0.75"
+                value="Fitness"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.25"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 0 0"
+            >
+            </a-gui-label>
+             <a-gui-label
+                width="3" height="0.75"
+                value="Exit"
+                font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                font-size="0.25"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 -1 0"
+            >
+            </a-gui-label>
+
+        </a-gui-flex-container>
 
         <a-entity position="0 1.6 0" camera look-controls wasd-controls></a-entity>
         <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [mixin='box']"></a-entity>
         <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [mixin='box']" line="color: #118A7E"></a-entity>
     </a-scene>
-
-    <script>
-        /**
-         * Change color if entity when intersected by raycaster.
-         */
-        AFRAME.registerComponent('intersect-color-change', {
-          init: function () {
-            var el = this.el;
-            var material = el.getAttribute('material');
-            var initialColor = material.color;
-            var self = this;
-
-            el.addEventListener('mousedown', function (evt) {
-              el.setAttribute('material', 'color', '#EF2D5E');
-            });
-
-            el.addEventListener('mouseup', function (evt) {
-              el.setAttribute('material', 'color', self.isMouseEnter ? '#24CAFF' : initialColor);
-            });
-
-            el.addEventListener('mouseenter', function () {
-              el.setAttribute('material', 'color', '#24CAFF');
-              self.isMouseEnter = true;
-            });
-
-            el.addEventListener('mouseleave', function () {
-              el.setAttribute('material', 'color', initialColor);
-              self.isMouseEnter = false;
-            });
-          }
-        });
-    </script>
   </body>
 </html>
