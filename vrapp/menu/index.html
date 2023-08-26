@@ -18,48 +18,65 @@
     <a-scene log="scene rendererd!">
       <!-- Panel -->
       <a-entity log="entity rendererd!"
-            environment="preset: starry;
-                        groundTexture: walkernoise;
-                        ground: hills;
-                        groundColor: #00b5ec;
-                        groundColor2: #33ac6a; 
-                        skyColor: #33ac6a;
-                        skyType: atmosphere;
-                        lighting: distant;
-                        dressing: none;
-                        shadow: true;
-                        fog:0.5;
-                        grid: dots">
+        environment="preset: starry;
+                    groundTexture: walkernoise;
+                    ground: hills;
+                    groundColor: #00b5ec;
+                    groundColor2: #33ac6a; 
+                    skyColor: #33ac6a;
+                    skyType: atmosphere;
+                    lighting: distant;
+                    dressing: pyramids;
+                    shadow: true;
+                    fog:0.5;
+                    grid: dots">
 
-                        <a-plane log="plane rendered!"
-                            position="0 3.5 -4" rotation="0 0 0" 
-                            width="4" height="2" color="#e43a24" opacity="0.2" 
-                            animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500" >
-                            <!-- Menu Items -->
-                            <a-text position="-1.8 0.75 0" value="Therapy" onclick="onTherapistMenuCLick()"></a-text>
-                            <a-text position="-1.8 0.45 0" value="Fitness" onclick="onFitnessMenuClick()"></a-text>
-                            <a-text position="-1.8 0.15 0" value="Exit" onclick="onExitMenuClicked()"></a-text>
-                        </a-plane> 
+                    <a-plane log="plane rendered!"
+                        position="0 2.5 -3" rotation="0 0 0" 
+                        width="3.5" height="2" color="#e43a24" opacity="0.4" 
+                        animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500"
+                        class="clickable" id="menu-panel">
+                        <!-- Menu Items -->
+                        <a-text position="-0.5 0.60 0" value="Therapy" class="clickable" id="therapy-menu"></a-text>
+                        <a-text position="-0.5 0.00 0" value="Fitness" class="clickable" id="fitness-menu"></a-text>
+                        <a-text position="-0.5 -0.60 0" value="Exit" class="clickable" id="exit-menu"></a-text>
+                    </a-plane> 
                         
         </a-entity>
 
-        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <a-entity position="0 1.6 0" camera look-controls wasd-controls></a-entity>
+        <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [mixin='box']"></a-entity>
+        <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [mixin='box']" line="color: #118A7E"></a-entity>
+
 
     </a-scene>
 
     <script>
-        function onTherapistMenuCLick(){
-            console.log("onTherapistMenuCLick");
-        }
+        AFRAME.registerComponent('clickable', {
+            init: function () {
+            const el = this.el;
+            el.addEventListener('click', function () {
+            const elementId = el.getAttribute('id');
+            if (elementId === 'menu-panel') {
 
-        function onFitnessMenuClick(){
-            console.log("onFitnessMenuClick");
-        }
+                alert('menu panel clicked');
 
-        function onExitMenuClicked(){
-            console.log("onExitMenuClicked");
-        }
+            } else if (elementId === 'therapy-menu') {
+
+                alert('therapy clicked');
+
+            } else if (elementId === 'fitness-menu') {
+            
+                ;
+
+            } else if (elementId === 'exit-menu') {
+                
+                ;
+
+              }
+            });
+          }
+        });
     </script>
   </body>
 </html>
