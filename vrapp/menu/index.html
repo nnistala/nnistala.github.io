@@ -34,7 +34,8 @@
                     <a-plane log="plane rendered!"
                         position="0 2.5 -3" rotation="0 0 0" 
                         width="3.5" height="2" color="#e43a24" opacity="0.4" 
-                        animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500" >
+                        animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500"
+                        class="clickable" id="menu-panel">
                         <!-- Menu Items -->
                         <a-text position="-0.5 0.60 0" value="Therapy" class="clickable" id="therapy-menu"></a-text>
                         <a-text position="-0.5 0.00 0" value="Fitness" class="clickable" id="fitness-menu"></a-text>
@@ -56,22 +57,26 @@
             const el = this.el;
             el.addEventListener('click', function () {
             const elementId = el.getAttribute('id');
-            if (elementId === 'therapy-menu') {
+            if (elementId === 'menu-panel') {
 
-            alert('therapy clicked');
+                alert('menu panel clicked');
 
-          } else if (elementId === 'fitness-menu') {
+            } else if (elementId === 'therapy-menu') {
+
+                alert('therapy clicked');
+
+            } else if (elementId === 'fitness-menu') {
             
-            ;
+                ;
 
-          } else if (elementId === 'exit-menu') {
-            
-            ;
+            } else if (elementId === 'exit-menu') {
+                
+                ;
 
+              }
+            });
           }
         });
-      }
-    });
     </script>
   </body>
 </html>
