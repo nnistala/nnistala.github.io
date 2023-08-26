@@ -5,10 +5,10 @@ AFRAME.registerComponent('scorecounter', {
       
       this.el.sceneEl.addEventListener('sabercollided', function (event) {
         score++;
-        score =  Math.floor(newScore);
         var newScore = `Score: ${score}`;
         scoreBoard.setAttribute('text', 'value',  newScore);
-        this.el.components.haptics.pulse();
+        // this.el.components.haptics.pulse();
+        event.srcElement.components.haptics.pulse
       });
     }
   });
