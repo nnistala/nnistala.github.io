@@ -47,6 +47,7 @@
                 position="0 1 0"
                 panel-rounded="0.4"
                 font-family="assets/fonts/DiplomataSC-Regular.ttf"
+                onclick="buttonActionFunction"
             >
             </a-gui-label>
             <a-gui-label
@@ -80,4 +81,10 @@
         <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [mixin='box']" line="color: #118A7E"></a-entity>
     </a-scene>
   </body>
+  <script type="text/javascript">
+      function buttonActionFunction(){
+        alert("heyy!!");
+        console.log("in onClick!!");
+      }
+  </script>
 </html>
