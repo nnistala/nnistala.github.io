@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5.1/dat.gui.min.js"></script>
+    <script src="https://rdub80.github.io/aframe-gui/examples/js/aframe-gui.js"></script>
+</head>
+<body>
+  <a-scene background="color: #888888">
+    <!-- Text Input Bar -->
+    <!-- <a-gui-flex-container flex-direction="column" justify-content="center" width="3" height="0.3" position="0 1.6 -4">
+      <a-gui-input width="2" height="0.25" font-color="black" border-color="black" id="search-input"></a-gui-input>
+      <a-gui-flex-container flex-direction="row" justify-content="space-between" width="2" height="0.2">
+        <a-gui-button width="0.3" height="0.2" font-color="black" border-color="black" value="Mic" id="mic-button"></a-gui-button>
+        <a-gui-button width="0.3" height="0.2" font-color="black" border-color="black" value="Search" id="search-button"></a-gui-button>
+      </a-gui-flex-container>
+      <a-gui-button width="0.5" height="0.2" font-color="black" border-color="black" value="Back" id="back-button"></a-gui-button>
+    </a-gui-flex-container>
+  </a-scene> -->
+
+  <!-- <a-scene log="scene rendererd!"> -->
+    <!-- Preset: none, default, contact, egypt, checkerboard, forest, goaland, 
+        yavapai, goldmine, threetowers, poison, arches, tron, japan, 
+        dream, volcano, starry, osiris, moon -->
+    <!-- dressing: none, cubes, pyramids, cylinders, 
+        towers, mushrooms, trees, apparatus, torii -->
+    <!-- <a-entity log="entity rendererd!"
+        environment="preset: dream; 
+                    groundTexture: walkernoise;
+                    groundColor: #00b5ec;
+                    groundColor2: #33ac6a; 
+                    skyColor: #33ac6a;
+                    skyType: atmosphere;
+                    lighting: distant;
+                    dressing: none;
+                    shadow: true;
+                    fog:0.5;
+                    grid: dots"> -->
+
+                        <a-gui-flex-container flex-direction="row" justify-content="space-between" width="4" height="0.5" position="0 1.6 -4">
+                          <a-gui-button width="0.7" height="0.3" font-color="white" border-color="black" value="Mic" id="mic-button" onclick="onMic"></a-gui-button>
+                          <a-gui-input width="2" height="0.3" font-color="black"  id="search-input"></a-gui-input>
+                          <a-gui-button width="0.7" height="0.3" font-color="white" border-color="black" value="Search" id="search-button" class="clickable"></a-gui-button>
+                          <a-gui-button width="0.5" height="0.3" font-color="white" border-color="black" value="Back" id="back-button" class="clickable"></a-gui-button>
+                        </a-gui-flex-container>
+                        
+                    
+    <!-- </a-entity> -->
+  </a-scene>
+
+  <script>
+
+    function onMic(){
+        alert('Mic');
+    }
+
+    AFRAME.registerComponent('clickable', {
+      init: function () {
+        const el = this.el;
+        el.addEventListener('click', function () {
+          const elementId = el.getAttribute('id');
+          if (elementId === 'back-button') {
+            // Handle back button click
+            alert('back');
+          } else if (elementId === 'mic-button') {
+            // Handle mic button click
+            // startSpeechRecognition();
+            alert('mic');
+          } else if (elementId === 'search-button') {
+            // Handle search button click
+            const inputText = document.querySelector('#search-input').getAttribute('text');
+            alert('Search Text: ' + inputText);
+          }
+        });
+      }
+    });
+
+    function startSpeechRecognition() {
+      // You need to integrate a speech recognition API here
+      // For example, you can use Web Speech API for browser-based speech recognition
+      // Here's a basic example:
+      const recognition = new webkitSpeechRecognition(); // Change to SpeechRecognition for non-webkit browsers
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = function(event) {
+        const spokenText = event.results[0][0].transcript;
+        document.querySelector('#search-input').setAttribute('value', spokenText);
+      };
+      
+    //   recognition.start();
+    }
+  </script>
+</body>
+</html>
