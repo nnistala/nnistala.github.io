@@ -1,1 +1,61 @@
-<html></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script>
+        AFRAME.registerComponent('meditation-component', {
+          init: function () {
+            this.startVisualization();
+          },
+          
+          startVisualization: function () {
+            const sphere = document.createElement('a-sphere');
+            sphere.setAttribute('position', '0 1.5 -4');
+            sphere.setAttribute('color', '#ffcc00');
+            this.el.appendChild(sphere);
+            
+            this.animateSphere(sphere);
+          },
+          
+          animateSphere: function (sphere) {
+            const self = this;
+            
+            sphere.addEventListener('animationcomplete', function () {
+              self.animateSphere(sphere);
+            });
+            
+            sphere.setAttribute('animation__scale', {
+              property: 'scale',
+              dur: 5000,
+              easing: 'easeInOutElastic',
+              from: '0.01 0.01 0.01',
+              to: '1 1 1'
+            });
+            
+            sphere.setAttribute('animation__color', {
+              property: 'material.color',
+              dur: 3000,
+              easing: 'easeInOutQuad',
+              from: '#ffcc00',
+              to: '#ff9966'
+            });
+          }
+        });
+      </script>
+</head>
+<body>
+  <a-scene>
+    <!-- Sky to set the background -->
+    <a-sky color="#87CEEB"></a-sky>
+    
+    <!-- Ground plane -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#888"></a-plane>
+    
+    <!-- Guided meditation audio source -->
+    <a-sound src="/vrapp/assets/sounds/meditation.mp3" autoplay="true" loop="true" position="0 2 -5"></a-sound>
+    
+    <!-- Visualization and animation entity -->
+    <a-entity meditation-component></a-entity>
+  </a-scene>
+</body>
+</html>
