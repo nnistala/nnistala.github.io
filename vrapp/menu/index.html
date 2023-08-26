@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
-    {
+      {
         "imports": {
-        "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+          "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
         }
-    }
+      }
     </script>
   </head>
   <body>
-    <a-scene log="scene rendererd!">
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse">
       <!-- Panel -->
       <a-entity log="entity rendererd!"
         environment="preset: starry;
@@ -47,8 +46,6 @@
         <a-entity position="0 1.6 0" camera look-controls wasd-controls></a-entity>
         <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [mixin='box']"></a-entity>
         <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [mixin='box']" line="color: #118A7E"></a-entity>
-
-
     </a-scene>
 
     <script>
@@ -58,21 +55,13 @@
             el.addEventListener('click', function () {
             const elementId = el.getAttribute('id');
             if (elementId === 'menu-panel') {
-
                 alert('menu panel clicked');
-
             } else if (elementId === 'therapy-menu') {
-
                 alert('therapy clicked');
-
             } else if (elementId === 'fitness-menu') {
-            
-                ;
-
+                alert('fitness clicked');
             } else if (elementId === 'exit-menu') {
-                
-                ;
-
+                alert('exit clicked');
               }
             });
           }
