@@ -22,7 +22,7 @@
   </head>
   <body>
     <a-scene renderer="antialias: true"
-             pool__cubes="mixin: cube; size: 10" 
+             pool__cubes="mixin: cube; size: 10; dynamic: true" 
              cubespawner
              scorecounter>
       <a-assets>
@@ -32,6 +32,14 @@
                  class="cubes"
                  geometry="primitive: box"
                  position="0 1 -25"
+                 scale="0.4 0.4 0.4"
+                 cubemovement
+                 cubedestroyer
+        ></a-mixin>
+        <a-mixin id="cube1"
+                 class="cubes"
+                 geometry="primitive: box"
+                 position="2 1 -25"
                  scale="0.4 0.4 0.4"
                  cubemovement
                  cubedestroyer

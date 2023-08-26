@@ -7,10 +7,20 @@ function getRandomNumber(value, offset) {
   function getRedOrBlue() {
     return getRandomNumber(10, 0) > 5 ? "blue" : "red";
   }
+
+  function getBlueColor() {
+    return "blue";
+  }
   
+  function getRedColor() {
+    return "red";
+  }
+
   AFRAME.registerComponent('cubespawner', {
     init: function() {
       this.timeStep = 0;
+      this.isLeft = true;
+      this.isTop = true;
     },
     
     tick: function (time, timeDelta) {
@@ -19,21 +29,39 @@ function getRandomNumber(value, offset) {
         return;
       }
       this.timeStep = 0;
+
+      let leftColors = ['red', 'blue'];
+      let rightColors = ['blue', 'red'];
       
-      var cubeEl = this.el.components.pool__cubes.requestEntity();
-      if (!cubeEl) {
-        return;
+      let cubeElArr = [];
+      for (let i = 0; i < 2; i++) {
+        cubeElArr.push(this.el.components.pool__cubes.requestEntity());
+      }
+
+      var positionX, positionY, positionZ = -25;
+      if (this.isLeft) {
+        positionX = -1;
+      } else {
+        positionX = 2;
+      }
+
+      cubeElArr.forEach((cubeEl, index) => {
+        
+      if(index == 1) {
+        positionX+= 0.5;
       }
       
-      var positionX = getRandomNumber(3, -1);
-      var positionY = getRandomNumber(2, 1);
-      var positionZ = -25;
       
-      var cubeColor = getRedOrBlue();
+      var cubeColor = this.isLeft ? leftColors[index]: rightColors[index];
       
       cubeEl.setAttribute('position', {x: positionX, y: positionY, z: positionZ});
       cubeEl.setAttribute('material', `color: ${cubeColor}`);
       cubeEl.setAttribute('class', 'cubes');
       cubeEl.play();
+      });
+
+      this.isLeft = !this.isLeft;
+      
+      // cubeEl.play();
     }
   });

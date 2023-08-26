@@ -1,5 +1,5 @@
 {
   "port": 8085,
-  "root": "vrapp/",
-  "open": "index.html"
+  "root": "/",
+  "open": "vrapp/index.html"
 }
