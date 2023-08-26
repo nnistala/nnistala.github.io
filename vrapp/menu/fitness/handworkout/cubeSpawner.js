@@ -24,7 +24,7 @@ function getRandomNumber(value, offset) {
     },
     
     tick: function (time, timeDelta) {
-      if (this.timeStep < 1000) {
+      if (this.timeStep < 2000) {
         this.timeStep += timeDelta;
         return;
       }
@@ -32,6 +32,8 @@ function getRandomNumber(value, offset) {
 
       let leftColors = ['red', 'blue'];
       let rightColors = ['blue', 'red'];
+
+      let x = 0.5;
       
       let cubeElArr = [];
       for (let i = 0; i < 2; i++) {
@@ -40,9 +42,9 @@ function getRandomNumber(value, offset) {
 
       var positionX, positionY, positionZ = -25;
       if (this.isLeft) {
-        positionX = -1;
+        positionX = -x;
       } else {
-        positionX = 2;
+        positionX = x;
       }
 
       cubeElArr.forEach((cubeEl, index) => {
