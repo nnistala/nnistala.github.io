@@ -34,7 +34,7 @@
                         position="0 2.5 -3" rotation="0 0 0" 
                         width="3.5" height="2" color="#e43a24" opacity="0.4" 
                         animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500"
-                        id="menu-panel" menupanel>
+                        id="menu-panel" intersect-color-change>
                         <!-- Menu Items -->
                         <a-text position="-0.5 0.60 0" value="Therapy" id="therapy-menu"></a-text>
                         <a-text position="-0.5 0.00 0" value="Fitness" id="fitness-menu"></a-text>
@@ -49,19 +49,33 @@
     </a-scene>
 
     <script>
-        AFRAME.registerComponent('menupanel', {
+        /**
+         * Change color if entity when intersected by raycaster.
+         */
+        AFRAME.registerComponent('intersect-color-change', {
           init: function () {
             var el = this.el;
-            var geometry = 'primitive: box; height: 2; width: 2; depth: 2;';
-            var material = 'color: #167341; roughness: 1.0; metalness: 0.2;';
-            el.setAttribute('geometry', geometry);
-            el.setAttribute('material', material);
-            this.onClick = this.onClick.bind(this);
-          },
-          onClick: function (evt) {
-            var el = this.el;
-            alert('In onClick Event!!');
-            setTimeout(this.laserDestroyer(laserEl), 1000);
+            var material = el.getAttribute('material');
+            var initialColor = material.color;
+            var self = this;
+
+            el.addEventListener('mousedown', function (evt) {
+              el.setAttribute('material', 'color', '#EF2D5E');
+            });
+
+            el.addEventListener('mouseup', function (evt) {
+              el.setAttribute('material', 'color', self.isMouseEnter ? '#24CAFF' : initialColor);
+            });
+
+            el.addEventListener('mouseenter', function () {
+              el.setAttribute('material', 'color', '#24CAFF');
+              self.isMouseEnter = true;
+            });
+
+            el.addEventListener('mouseleave', function () {
+              el.setAttribute('material', 'color', initialColor);
+              self.isMouseEnter = false;
+            });
           }
         });
     </script>
