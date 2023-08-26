@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script async src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <script type="importmap">
-    {
+      {
         "imports": {
-        "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+          "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
         }
-    }
+      }
     </script>
   </head>
   <body>
-    <a-scene log="scene rendererd!">
-      <!-- Panel -->
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env>
       <a-entity log="entity rendererd!"
         environment="preset: starry;
                     groundTexture: walkernoise;
@@ -30,53 +29,59 @@
                     shadow: true;
                     fog:0.5;
                     grid: dots">
-
-                    <a-plane log="plane rendered!"
-                        position="0 2.5 -3" rotation="0 0 0" 
-                        width="3.5" height="2" color="#e43a24" opacity="0.4" 
-                        animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500"
-                        class="clickable" id="menu-panel">
-                        <!-- Menu Items -->
-                        <a-text position="-0.5 0.60 0" value="Therapy" class="clickable" id="therapy-menu"></a-text>
-                        <a-text position="-0.5 0.00 0" value="Fitness" class="clickable" id="fitness-menu"></a-text>
-                        <a-text position="-0.5 -0.60 0" value="Exit" class="clickable" id="exit-menu"></a-text>
-                    </a-plane> 
-                        
+                   
         </a-entity>
+
+        <a-gui-flex-container
+            flex-direction="row" justify-content="center" align-items="normal" component-padding="0.1"
+            opacity="0.5" width="3.5" height="4" panel-color="#000" panel-rounded="0.1"
+            position="0 3 -5" rotation="0 0 0"
+            >
+            <a-gui-label
+                width="3" height="0.75"
+                value="Therapy"
+                font-size="0.25"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 1 0"
+
+                font-color="black"
+                active-color="red"
+                hover-color="yellow"
+                border-color="white"
+                focus-color="black"
+                background-color="orange"
+            >
+            </a-gui-label>
+            <a-gui-label
+                width="3" height="0.75"
+                value="Fitness"
+                font-size="0.25"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 0 0"
+
+                background-color="orange"
+            >
+            </a-gui-label>
+             <a-gui-label
+                width="3" height="0.75"
+                value="Exit"
+                font-size="0.25"
+                line-height="0.8"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 -1 0"
+            >
+            </a-gui-label>
+
+        </a-gui-flex-container>
 
         <a-entity position="0 1.6 0" camera look-controls wasd-controls></a-entity>
         <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [mixin='box']"></a-entity>
         <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [mixin='box']" line="color: #118A7E"></a-entity>
-
-
     </a-scene>
-
-    <script>
-        AFRAME.registerComponent('clickable', {
-            init: function () {
-            const el = this.el;
-            el.addEventListener('click', function () {
-            const elementId = el.getAttribute('id');
-            if (elementId === 'menu-panel') {
-
-                alert('menu panel clicked');
-
-            } else if (elementId === 'therapy-menu') {
-
-                alert('therapy clicked');
-
-            } else if (elementId === 'fitness-menu') {
-            
-                ;
-
-            } else if (elementId === 'exit-menu') {
-                
-                ;
-
-              }
-            });
-          }
-        });
-    </script>
   </body>
 </html>
