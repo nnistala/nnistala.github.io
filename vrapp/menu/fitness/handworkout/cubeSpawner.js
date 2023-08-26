@@ -31,9 +31,8 @@ function getRandomNumber(value, offset) {
       this.timeStep = 0;
 
       let leftColors = ['red', 'blue'];
-      let rightColors = ['blue', 'red'];
 
-      let x = 0.5;
+      let x = 0.5, y = 1, negY= 0;
       
       let cubeElArr = [];
       for (let i = 0; i < 2; i++) {
@@ -41,6 +40,12 @@ function getRandomNumber(value, offset) {
       }
 
       var positionX, positionY, positionZ = -25;
+
+      if(this.isTop) {
+        positionY = y
+      } else {
+        positionY = -negY;
+      }
       if (this.isLeft) {
         positionX = -x;
       } else {
@@ -53,7 +58,6 @@ function getRandomNumber(value, offset) {
         positionX+= 0.5;
       }
       
-      
       var cubeColor = this.isLeft ? leftColors[index]: leftColors[index];
       
       cubeEl.setAttribute('position', {x: positionX, y: positionY, z: positionZ});
@@ -63,7 +67,6 @@ function getRandomNumber(value, offset) {
       });
 
       this.isLeft = !this.isLeft;
-      
-      // cubeEl.play();
+      this.isTop = !this.isTop;
     }
   });
