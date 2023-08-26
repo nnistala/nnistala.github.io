@@ -5,8 +5,8 @@ AFRAME.registerComponent('scorecounter', {
       
       this.el.sceneEl.addEventListener('sabercollided', function (event) {
         score++;
+        score =  Math.floor(newScore);
         var newScore = `Score: ${score}`;
-        newScore = Math.floor(newScore);
         scoreBoard.setAttribute('text', 'value',  newScore);
         this.el.components.haptics.pulse();
       });

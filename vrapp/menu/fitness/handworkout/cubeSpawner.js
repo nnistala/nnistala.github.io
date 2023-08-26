@@ -32,7 +32,7 @@ function getRandomNumber(value, offset) {
 
       let leftColors = ['red', 'blue'];
 
-      let x = 0.5, y = 2, negY= 0;
+      let x = 0, y = 2, negY= 0;
       
       let cubeElArr = [];
       for (let i = 0; i < 2; i++) {
@@ -47,7 +47,7 @@ function getRandomNumber(value, offset) {
         positionY = -negY;
       }
       if (this.isLeft) {
-        positionX = -x;
+        positionX = x;
       } else {
         positionX = x;
       }
