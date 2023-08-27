@@ -1,6 +1,7 @@
 AFRAME.registerComponent('scorecounter', {
     init: function () {
       var scoreBoard = document.querySelector('#score');
+      var heightElement = document.querySelector("#height");
       var score = 0;
       
       this.el.sceneEl.addEventListener('sabercollided', function (event) {
@@ -15,7 +16,6 @@ AFRAME.registerComponent('scorecounter', {
 
         var position = getUserPosition();
         if (position) {
-          var heightElement = document.querySelector("#height");
           heightElement.setAttribute("text", "value", "Height " + position.y);
         } 
       });
