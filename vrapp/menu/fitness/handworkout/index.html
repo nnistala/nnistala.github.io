@@ -46,7 +46,10 @@
         ></a-mixin>
       </a-assets>
       <a-entity id="gameover-model"></a-entity>
-      <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
+      <a-plane position="-1 2 -1" width="0.5" height="0.1" material=" color:magenta; opacity: 0.5">
+        <a-entity id="score" text="value: Score: 0" position="0.4"></a-entity>
+      </a-plane>
+      
 
       <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
       <a-camera look-controls id="playerCamera" log>        
@@ -78,7 +81,7 @@
                     depth="0.05"
                     saber="red"
                     position="0 -0.2 0"
-                    aabb-collider="objects: .cubes; debug:true"
+                    aabb-collider="objects: .cubes;"
                   ></a-box>
                 </a-entity>
         </a-entity>
@@ -95,7 +98,7 @@
                 depth="0.05"
                 saber="blue"
                 position="0 -0.2 0"
-                aabb-collider="objects: .cubes; debug:true"
+                aabb-collider="objects: .cubes;"
               ></a-box>
             </a-entity>
         </a-entity>
