@@ -20,7 +20,7 @@ function turnOffBgm(){
 }*/
 
 $(function() {
-
+    ;
     setTimeout(() => {
         $('#idIntroLogoScene').hide();
         $("#idMainMenuScene").show();
@@ -34,6 +34,6 @@ function openTherapySubMenu(){
 }
 
 function openFitnessSubMenu(){
-    $("#idMainMenuScene").show();
+    $("#idMainMenuScene").hide();
     $('#idHandTrackingScene').show();
 }

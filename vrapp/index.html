@@ -40,12 +40,12 @@
     </head>
   <body>
     <!-- Intro Logo Scene -->
-    <a-scene gui-env id="idIntroLogoScene">
+    <a-scene gui-env id="idIntroLogoScene" style="display: none">
         
     </a-scene>
 
     <!-- Main Menu Scene -->
-    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env>
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env id="idMainMenuScene">
       <a-assets>
         <img id="menuBackgroundImg" crossorigin="anonymous" src="/vrapp/menu/assets/images/zenMode.png">
       </a-assets>
@@ -181,11 +181,11 @@
         <audio id="hitLeft" src="/vrapp/menu/fitness/assets/sounds/beatHit.ogg"></audio>
         <audio id="hitRight" src="/vrapp/menu/fitness/assets/sounds/beatHit.ogg"></audio>
         <!-- Image assets -->
-        <img
+        <!-- <img
           id="sechelt"
           crossorigin="anonymous"
           src="/vrapp/menu/fitness/handworkout/assets/images/background-galaxy.png"
-        ></img>
+        ></img> -->
         <a-mixin
           id="cube"
           class="cubes"
@@ -206,7 +206,7 @@
       ></a-entity>
       <a-camera look-controls id="playerCamera" log></a-camera>
 
-      <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
+      <!-- <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky> -->
       <a-entity
         hand-controls="right"
         haptics="events: sabercollided; dur: 1000; force: 0.5"
