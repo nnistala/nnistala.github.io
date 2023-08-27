@@ -63,14 +63,13 @@ AFRAME.registerComponent('cubespawner', {
             cubeColor = plan.handDirection === 'left' ? this.handBlockColors.left : this.handBlockColors.right;
           }
 
-          console.log(plan);
-          console.log(cubeColor);
-
           cubeEl.setAttribute('position', { x: position.x, y: position.y, z: position.z });
           cubeEl.setAttribute('material', `color: ${cubeColor}`);
           cubeEl.setAttribute("id", ``);
           // cubeEl.setAttribute("id", `0`);
           cubeEl.setAttribute('class', 'cubes');
+          cubeEl.setAttribute('height', '10');
+          cubeEl.setAttribute('width', '10');
 
           cubeEl.play();
         } else if (plan.handCount == 2) {
@@ -94,6 +93,8 @@ AFRAME.registerComponent('cubespawner', {
       element.setAttribute('position', { x: plan.position.x, y: plan.position.y, z: plan.position.z });
       element.setAttribute('material', `color: ${cubeColor}`);
       element.setAttribute('class', 'cubes');
+      element.setAttribute('height', '10');
+      element.setAttribute('width', '10');
 
       cubeElArr.push(element);
     }
