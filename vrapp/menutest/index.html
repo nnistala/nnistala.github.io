@@ -34,7 +34,16 @@
   <body>
     <!-- Intro Logo Scene -->
     <a-scene gui-env id="idIntroLogoScene" style="display: none">
-        
+        <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+
+      <a-entity id="cameraRig">
+        <a-camera look-controls wasd-controls>
+        </a-camera>
+      </a-entity>
+    </a-scene>
     </a-scene>
 
     <!-- Main Menu Scene -->
@@ -54,6 +63,16 @@
     <!-- Therapy Scene -->
     <a-scene cursor="rayOrigin: mouse">
         
+        <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+
+      <a-entity id="cameraRig">
+        <a-camera look-controls wasd-controls>
+        </a-camera>
+      </a-entity>
+    </a-scene>
     </a-scene>
 
   </body>
