@@ -1,7 +1,8 @@
 // random num generator
 function getRandomNumber(value, offset) {
-  return Math.floor(Math.random() * value + offset);
-}
+    return Math.floor(Math.random() * value + offset);
+  }
+  
 
 function getBlueColor() {
   return "blue";
