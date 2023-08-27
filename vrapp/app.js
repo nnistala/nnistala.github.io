@@ -19,7 +19,7 @@ function turnOffBgm(){
     $("#bgmsound").attr('src','');
 }*/
 
-$(function() {
+/*$(function() {
     ;
     setTimeout(() => {
         $('#idIntroLogoScene').hide();
@@ -36,4 +36,4 @@ function openTherapySubMenu(){
 function openFitnessSubMenu(){
     $("#idMainMenuScene").hide();
     $('#idHandTrackingScene').show();
-}
+}*/
