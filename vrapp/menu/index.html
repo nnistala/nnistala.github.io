@@ -8,16 +8,6 @@
     <script src="https://rdub80.github.io/aframe-gui/examples/js/aframe-gui.js" type="text/javascript"></script>
     <script src="https://rdub80.github.io/aframe-gui/examples/js/gui-env.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script src="/vrapp/menu/menu.js"></script>
-
-    <script src="https://rdub80.github.io/aframe-gui/examples/assets/fonts/fa-solid-900.ttf" type="text/javascript"></script>
-    <script src="https://rdub80.github.io/aframe-gui/examples/assets/fonts/fa-regular-400.ttf" type="text/javascript"></script>
-    <script src="https://rdub80.github.io/aframe-gui/examples/assets/fonts/fa-brands-400.ttf" type="text/javascript"></script>
-    
-    <script src="https://rdub80.github.io/aframe-gui/examples/assets/fonts/ionicons.eot" type="text/javascript"></script>
-    <script src="https://rdub80.github.io/aframe-gui/examples/assets/fonts/ionicons.svg" type="text/javascript"></script>
-    <script src="https://rdub80.github.io/aframe-gui/examples/assets/fonts/ionicons.woff" type="text/javascript"></script>
 
     <script type="importmap">
       {
@@ -68,7 +58,7 @@
                     margin: 0 0 0.6 0;"
 
           gui-interactable="clickAction: openFitnessMenu;"
-          gui-button="value: FITNESS;
+          gui-button="value: HAND WORKOUT;
                      font-family: /vrapp/assets/fonts/Realized.ttf;
                      font-size: 0.25;
                      panel-rounded: 0.4;
@@ -157,7 +147,7 @@
         window.open("/vrapp/menu/therapy/index.html", "_self");
     }
     function openFitnessMenu(){
-      window.open("/vrapp/menu/fitness/index.html", "_self")
+      window.open("/vrapp/menu/fitness/handworkout/index.html", "_self");
     }
     function exitTheApp(){
       window.close();

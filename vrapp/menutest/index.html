@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>A-Frame Scene Navigation</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  </head>
+    <head>
+
+        <!-- aframe files -->
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+        
+        <!-- aframe-gui components and click events files -->
+        <script src="https://rdub80.github.io/aframe-gui/examples/js/aframe-gui.js" type="text/javascript"></script>
+        <script src="https://rdub80.github.io/aframe-gui/examples/js/gui-env.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+        <!-- User-defined event listeners -->        
+        <script src="app.js"></script>
+
+        <!-- Import Fitness HandWorkout files -->
+        
+
+
+        <script type="importmap">
+        {
+            "imports": {
+            "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+            }
+        }
+        </script>
+    </head>
   <body>
-    <a-scene>
-      <!-- Scene 1 -->
-      <a-assets>
-        <img id="scene1" src="/vrapp/menu/assets/images/Forest_bg.png">
-      </a-assets>
+    <!-- Intro Logo Scene -->
+    <a-scene gui-env id="idIntroLogoScene" style="display: none">
+        <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
 
-      <a-sky src="#scene1" id="scene1-sky"></a-sky>
-
-      <!-- Scene 2 -->
-      <a-assets>
-        <img id="scene2" src="/vrapp/menu/assets/images/SnowMountains_bg_nologo.png">
-      </a-assets>
-
-      <a-sky src="#scene2" id="scene2-sky" visible="false"></a-sky>
-
-      <!-- Scene 3 -->
-      <a-assets>
-        <img id="scene3" src="/vrapp/menu/assets/images/MountainHouses_bg_nologo.png">
-      </a-assets>
-
-      <a-sky src="#scene3" id="scene3-sky" visible="false"></a-sky>
-
-      <!-- Buttons to switch scenes -->
-      <a-entity
-        position="-2 1 -4"
-        text="value: Click to switch to Scene 1; align: center; color: white"
-        event-set__click="_target: #scene1-sky; visible: true; _target: #scene2-sky; visible: false; _target: #scene3-sky; visible: false"
-        material="color: #333"
-        geometry="primitive: plane; width: 2; height: 0.5"
-        cursor-listener
-      ></a-entity>
-
-      <a-entity
-        position="0 1 -4"
-        text="value: Click to switch to Scene 2; align: center; color: white"
-        event-set__click="_target: #scene1-sky; visible: false; _target: #scene2-sky; visible: true; _target: #scene3-sky; visible: false"
-        material="color: #333"
-        geometry="primitive: plane; width: 2; height: 0.5"
-        cursor-listener
-      ></a-entity>
-
-      <a-entity
-        position="2 1 -4"
-        text="value: Click to switch to Scene 3; align: center; color: white"
-        event-set__click="_target: #scene1-sky; visible: false; _target: #scene2-sky; visible: false; _target: #scene3-sky; visible: true"
-        material="color: #333"
-        geometry="primitive: plane; width: 2; height: 0.5"
-        cursor-listener
-      ></a-entity>
-
-      <!-- Cursor for clicking -->
-      <a-entity
-        id="cursor"
-        cursor="rayOrigin: mouse"
-        raycaster="objects: [cursor-listener]"
-        position="0 0 -1"
-        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-        material="color: white; shader: flat"
-      ></a-entity>
+      <a-entity id="cameraRig">
+        <a-camera look-controls wasd-controls>
+        </a-camera>
+      </a-entity>
     </a-scene>
+    </a-scene>
+
+    <!-- Main Menu Scene -->
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env id="idMainMenuScene">
+
+      <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+
+      <a-entity id="cameraRig">
+        <a-camera look-controls wasd-controls>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+
+    <!-- Therapy Scene -->
+    <a-scene cursor="rayOrigin: mouse">
+        
+        <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+
+      <a-entity id="cameraRig">
+        <a-camera look-controls wasd-controls>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+    </a-scene>
+
   </body>
 </html>
