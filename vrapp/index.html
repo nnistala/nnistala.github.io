@@ -32,145 +32,139 @@
         </script>
     </head>
   <body>
-    <div id="idIntroLogoSceneDiv">
-        <!-- Intro Logo Scene -->
-        <a-scene gui-env id="idIntroLogoScene" style="display: none">
-            
-        </a-scene>
-    </div>
+    <!-- Intro Logo Scene -->
+    <a-scene gui-env id="idIntroLogoScene" style="display: none">
+        
+    </a-scene>
 
-    <div id="idIntroLogoSceneDiv">
-        <!-- Main Menu Scene -->
-        <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env id="idMainMenuScene">
-          <a-assets>
-            <img id="menuBackgroundImg" crossorigin="anonymous" src="/vrapp/menu/assets/images/zenMode.png">
-          </a-assets>
+    <!-- Main Menu Scene -->
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env id="idMainMenuScene">
+      <a-assets>
+        <img id="menuBackgroundImg" crossorigin="anonymous" src="/vrapp/menu/assets/images/zenMode.png">
+      </a-assets>
 
-          <a-sky id="skybgimg" rotation="0 300 0" radius="30" src="#menuBackgroundImg"></a-sky>
+      <a-sky id="skybgimg" rotation="0 300 0" radius="30" src="#menuBackgroundImg"></a-sky>
 
-          <a-gui-flex-container
-            flex-direction="column" justify-content="center" align-items="center"
-            opacity="0.4" width="4" height="6.5" panel-color="#cecece" panel-rounded="0.4" transparent="true"
-            position="0 3 -7" rotation="0 0 0"
-          >
-            <a-entity
-              gui-item="type: button;
-                        width: 3;
-                        height: 0.5;
-                        margin: 0 0 0.6 0;"
+      <a-gui-flex-container
+        flex-direction="column" justify-content="center" align-items="center"
+        opacity="0.4" width="4" height="6.5" panel-color="#cecece" panel-rounded="0.4" transparent="true"
+        position="0 3 -7" rotation="0 0 0"
+      >
+        <a-entity
+          gui-item="type: button;
+                    width: 3;
+                    height: 0.5;
+                    margin: 0 0 0.6 0;"
 
-              gui-interactable="clickAction: openTherapySubMenu;"
-              gui-button="value: THERAPY;
-                         font-family: /vrapp/assets/fonts/Realized.ttf;
-                         font-size: 0.25;
-                         panel-rounded: 0.4;
-                         font-color: white;
-                         active-color: #604287;
-                         hover-color: #604287;
-                         focus-color: #604287;
-                         background-color: #604287;
-                         opacity: 0.5;"
-            >
-            </a-entity>
+          gui-interactable="clickAction: openTherapySubMenu;"
+          gui-button="value: THERAPY;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color: #604287;
+                     opacity: 0.5;"
+        >
+        </a-entity>
 
-            <a-entity
-              gui-item="type: button;
-                        width: 3;
-                        height: 0.5;
-                        margin: 0 0 0.6 0;"
+        <a-entity
+          gui-item="type: button;
+                    width: 3;
+                    height: 0.5;
+                    margin: 0 0 0.6 0;"
 
-              gui-interactable="clickAction: openFitnessSubMenu;"
-              gui-button="value: HANDWORKOUT;
-                         font-family: /vrapp/assets/fonts/Realized.ttf;
-                         font-size: 0.25;
-                         panel-rounded: 0.4;
-                         font-color: white;
-                         active-color: #604287;
-                         hover-color: #604287;
-                         focus-color: #604287;
-                         background-color: #604287;
-                         opacity: 0.5;"
-            >
-            </a-entity>
+          gui-interactable="clickAction: openFitnessSubMenu;"
+          gui-button="value: HANDWORKOUT;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color: #604287;
+                     opacity: 0.5;"
+        >
+        </a-entity>
 
-            <a-entity
-              gui-item="type: button;
-                        width: 3;
-                        height: 0.5;
-                        margin: 0 0 0.6 0;"
+        <a-entity
+          gui-item="type: button;
+                    width: 3;
+                    height: 0.5;
+                    margin: 0 0 0.6 0;"
 
-              gui-button="value: CUSTOMIZE;
-                         font-family: /vrapp/assets/fonts/Realized.ttf;
-                         font-size: 0.25;
-                         panel-rounded: 0.4;
-                         font-color: white;
-                         active-color: #604287;
-                         hover-color: #604287;
-                         focus-color: #604287;
-                         background-color: #604287;
-                         opacity: 0.5;"
-            >
-            </a-entity>
+          gui-button="value: CUSTOMIZE;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color: #604287;
+                     opacity: 0.5;"
+        >
+        </a-entity>
 
-            <a-entity
-              gui-item="type: button;
-                        width: 3;
-                        height: 0.5;
-                        margin: 0 0 0.6 0;"
+        <a-entity
+          gui-item="type: button;
+                    width: 3;
+                    height: 0.5;
+                    margin: 0 0 0.6 0;"
 
-              gui-button="value: DASHBOARD;
-                         font-family: /vrapp/assets/fonts/Realized.ttf;
-                         font-size: 0.25;
-                         panel-rounded: 0.4;
-                         font-color: white;
-                         active-color: #604287;
-                         hover-color: #604287;
-                         focus-color: #604287;
-                         background-color: #604287;
-                         opacity: 0.5;"
-            >
-            </a-entity>
+          gui-button="value: DASHBOARD;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color: #604287;
+                     opacity: 0.5;"
+        >
+        </a-entity>
 
-            <a-entity
-              gui-item="type: button;
-                        width: 3;
-                        height: 0.5;
-                        margin: 0 0 0 0;"
+        <a-entity
+          gui-item="type: button;
+                    width: 3;
+                    height: 0.5;
+                    margin: 0 0 0 0;"
 
-              gui-button="value: ONLINE CHALLENGES;
-                         font-family: /vrapp/assets/fonts/Realized.ttf;
-                         font-size: 0.25;
-                         panel-rounded: 0.4;
-                         font-color: white;
-                         active-color: #604287;
-                         hover-color: #604287;
-                         focus-color: #604287;
-                         background-color: #604287;
-                         opacity: 0.5;"
-            >
-            </a-entity>
+          gui-button="value: ONLINE CHALLENGES;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color: #604287;
+                     opacity: 0.5;"
+        >
+        </a-entity>
 
-          </a-gui-flex-container>
+      </a-gui-flex-container>
 
-          <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
-          <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
-          <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
-          <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+      <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
 
-          <a-entity id="cameraRig">
-            <a-camera look-controls wasd-controls>
-            </a-camera>
-          </a-entity>
+      <a-entity id="cameraRig">
+        <a-camera look-controls wasd-controls>
+        </a-camera>
+      </a-entity>
 
-        </a-scene>
-    </div>
+    </a-scene>
 
-    <div id="idSmartTherapySceneDiv">
-        <!-- Therapy Scene -->
-        <a-scene gui-env id="idSmartTherapyScene" style="display: none">
-            
-        </a-scene>
-    </div>
+    <!-- Therapy Scene -->
+    <a-scene gui-env id="idSmartTherapyScene" style="display: none">
+        
+    </a-scene>
 
   </body>
 </html>
