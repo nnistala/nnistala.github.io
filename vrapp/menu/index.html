@@ -60,7 +60,45 @@
                      hover-color: white;
                      focus-color: white;
                      opacity: 0.4;"
-          gui-interactable="clickAction: buttonActionFunction;"
+          gui-interactable="clickAction: openTherapyMenu;"
+        >
+        </a-entity>
+
+        <a-entity
+          gui-item="type: label;
+                    width: 3;
+                    height: 0.75;
+                    margin: 0 0 0.5 0;
+                    position: 0 1 0;"
+          gui-label="value: Fitness;
+                     font-family: /vrapp/menu/assets/fonts/Raleway-Bold.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: white;
+                     hover-color: white;
+                     focus-color: white;
+                     opacity: 0.4;"
+          gui-interactable="clickAction: openFitnessMenu;"
+        >
+        </a-entity>
+
+        <a-entity
+          gui-item="type: label;
+                    width: 3;
+                    height: 0.75;
+                    margin: 0 0 0.5 0;
+                    position: 0 1 0;"
+          gui-label="value: Exit;
+                     font-family: /vrapp/menu/assets/fonts/Raleway-Bold.ttf;
+                     font-size: 0.25;
+                     panel-rounded: 0.4;
+                     font-color: white;
+                     active-color: white;
+                     hover-color: white;
+                     focus-color: white;
+                     opacity: 0.4;"
+          gui-interactable="clickAction: exitTheApp;"
         >
         </a-entity>
 
@@ -82,8 +120,7 @@
 
             gui-interactable="clickAction: buttonActionFunction"
 
-        ></a-gui-label> -->
-
+        ></a-gui-label> 
         <a-gui-button
           width="3" height="0.75"
           value="Therapy"
@@ -124,7 +161,9 @@
           position="0 -1 0"
           font-family="/vrapp/menu/assets/fonts/Raleway-Regular.ttf"
         >
-        </a-gui-button>
+        </a-gui-button>-->
+
+
       </a-gui-flex-container>
 
       <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
@@ -139,8 +178,14 @@
     </a-scene>
   </body>
   <script type="text/javascript">
-    function buttonActionFunction(){
-        location.href = "/vrapp/menutest/index.html";
-      }
+    function openTherapyMenu(){
+        location.href = "/vrapp/therapy/index.html";
+    }
+    function openFitnessMenu(){
+      location.href = "/vrapp/fitness/index.html";
+    }
+    function exitTheApp(){
+      window.close();
+    }
   </script>
 </html>
