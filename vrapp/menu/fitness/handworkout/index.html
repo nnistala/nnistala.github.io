@@ -25,12 +25,14 @@
     <script src="https://rdub80.github.io/aframe-gui/examples/js/aframe-gui.js" type="text/javascript"></script>
     <script src="https://rdub80.github.io/aframe-gui/examples/js/gui-env.js" type="text/javascript"></script>
     
+    <script>
+      setTimeout(enterVRMode, 5000);
+    </script>
   </head>
   <body>
     <a-scene 
              renderer="antialias: true"
              pool__cubes="mixin: cube; size: 10; dynamic: true" 
-             
              scorecounter>
       <a-assets>
         <!-- Sount assets--> 
@@ -75,7 +77,7 @@
         value="Start"	
         font-size="0.25"
         font-color="black"
-        font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
+        font-family="/vrapp/assets/fonts/Realized.ttf"
         active-color="red"
         hover-color="yellow"
         border-color="white"

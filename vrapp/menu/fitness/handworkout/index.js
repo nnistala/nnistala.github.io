@@ -19,3 +19,7 @@ function startPlay() {
   var scene = document.querySelector('a-scene');
   scene.setAttribute('cubeSpawner');
 }
+
+function enterVRMode() {
+  $('.a-enter-vr-button').click();
+}
