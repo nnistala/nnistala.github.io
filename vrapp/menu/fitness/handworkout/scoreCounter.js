@@ -11,8 +11,8 @@ AFRAME.registerComponent('scorecounter', {
         // this.el.components.haptics.pulse();
         event.srcElement.components.haptics.pulse();
 
-        var entity = document.querySelector('[sound]');
-        entity.components.sound.stopSound();
+        var entity = document.querySelector('[hitSound]');
+        entity.components.sound.playSound();
 
         var position = getUserPosition();
         if (position) {

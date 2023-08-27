@@ -53,13 +53,12 @@
         aabb-collider="objects: .cubes"
                     saber="red">
         </a-entity>
-        <a-entity id="leftSound" sound="src: #hitLeft"></a-entity>
+        <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
   
         <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
             saber="blue"
             aabb-collider="objects: .cubes">
         </a-entity>
-        <a-entity id="rightSound" sound="src: #hitRight"></a-entity>
       <a-plane position="0 0 -20" rotation="-90 0 0" width="0" height="40" color="#7BC8A4">
         
       </a-plane>
