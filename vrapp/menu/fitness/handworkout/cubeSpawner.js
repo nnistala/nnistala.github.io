@@ -21,6 +21,8 @@ AFRAME.registerComponent('cubespawner', {
     this.basicPlan = true;
     this.zPos = -25;
     this.isKids = false;
+    this.maxMisses = 10;
+    this.generated = 0;
     this.basicWorkOutPlan = [
       { type: 'leftHandTopStretch', position: { x: -0.2, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'left', workOutType: 'sameHand' },
       { type: 'rightHandTopStretch', position: { x: 0.2, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'right', workOutType: 'sameHand' },
@@ -33,6 +35,12 @@ AFRAME.registerComponent('cubespawner', {
     this.handBlockColors = {
       left: 'red',
       right: 'blue',
+    };
+
+    if(window && window.sessionStorage) {
+      window.sessionStorage.setItem('cubesGenerated', this.generated);
+      window.sessionStorage.setItem('maxCubeMisses', this.maxMisses);
+      window.sessionStorage.setItem('cubeHits',0);
     }
   },
 
@@ -67,15 +75,19 @@ AFRAME.registerComponent('cubespawner', {
           cubeEl.setAttribute('position', { x: position.x, y: position.y, z: position.z });
           cubeEl.setAttribute('material', `color: ${cubeColor}`);
           cubeEl.setAttribute("id", ``);
-          // cubeEl.setAttribute("id", `0`);
           cubeEl.setAttribute('class', 'cubes');
           cubeEl.setAttribute('height', '10');
           cubeEl.setAttribute('width', '10');
 
-          cubeEl.play();
+          cubeEl.play();  
+          this.generated++;
         } else if (plan.handCount == 2) {
           this.generateMultipleCubesBasicPlan();
         }
+      }
+
+      if(window && window.sessionStorage) {
+        window.sessionStorage.setItem('cubesGenerated', this.generated);
       }
 
       this.index = (this.index + 1) % this.basicWorkOutPlan.length;
@@ -103,6 +115,8 @@ AFRAME.registerComponent('cubespawner', {
     cubeElArr.forEach((cubeEl, index) => {
       cubeEl.play();
     });
+
+    this.generated = this.generated + 2;
   },
 
   generateTopDownCubes: function () {

@@ -46,7 +46,30 @@
                  data-aabb-collider-dynamic
         ></a-mixin>
       </a-assets>
-      <a-entity id="gameover-model"></a-entity>
+      <a-entity id="gameover" visible="false" position="0 2 -3" >
+        <a-entity
+          id="exit"
+          visible="false"
+          position="0 1 5"
+          gui-item="type: button;
+                    width: 2;
+                    height: 0.7;"
+          gui-interactable="clickAction: exitFitness;"
+          gui-button="value: Exit;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     font-size:0.25;
+                     font-color:black;
+                     border-radius: 2;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color:orange;
+                     opacity: 0.5;
+                     onclick: exitFitness"
+        >
+        </a-entity>
+      </a-entity>
       <a-plane position="-1 2 -1" width="0.5" height="0.1" material=" color:magenta; opacity: 0.5">
         <a-entity id="score" text="value: Score: 0" position="0.4"></a-entity>
       </a-plane>

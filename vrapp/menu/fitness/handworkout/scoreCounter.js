@@ -5,6 +5,7 @@ AFRAME.registerComponent('scorecounter', {
       
       this.el.sceneEl.addEventListener('sabercollided', function (event) {
         score++;
+        localStorage.setItem('score', score);
         var newScore = `Score: ${score}`;
         scoreBoard.setAttribute('text', 'value',  newScore);
         // this.el.components.haptics.pulse();
@@ -13,6 +14,22 @@ AFRAME.registerComponent('scorecounter', {
         var entity = document.querySelector('[hitSound]');
         entity.components.sound.playSound();
 
+        if(window && window.sessionStorage) {
+          let existingCubeHitCount =  window.sessionStorage.getItem('cubeHits');
+          if(existingCubeHitCount !== null &&existingCubeHitCount !== undefined) {
+            existingCubeHitCount = +existingCubeHitCount;
+            existingCubeHitCount++;
+          } else {
+            existingCubeHitCount = 0;
+          }
+          
+          window.sessionStorage.setItem('cubeHits', existingCubeHitCount);
+        }
+
+        var position = getUserPosition();
+        if (position) {
+          heightElement.setAttribute("text", "value", "Height " + position.y);
+        } 
       });
     }
   });
