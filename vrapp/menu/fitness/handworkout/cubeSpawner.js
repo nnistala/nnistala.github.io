@@ -3,10 +3,6 @@ function getRandomNumber(value, offset) {
     return Math.floor(Math.random() * value + offset);
   }
   
-  // get either red or blue
-  function getRedOrBlue() {
-    return getRandomNumber(10, 0) > 5 ? "blue" : "red";
-  }
 
   function getBlueColor() {
     return "blue";
@@ -32,7 +28,7 @@ function getRandomNumber(value, offset) {
 
       let leftColors = ['red', 'blue'];
 
-      let x = 0, y = 2.2, negY= 0.5;
+      let x = 0, y = 2.1, negY= 0.5;
       
       let cubeElArr = [];
       for (let i = 0; i < 2; i++) {

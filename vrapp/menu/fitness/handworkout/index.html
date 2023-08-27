@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello Sabers!</title>
     <meta charset="utf-8">
     <meta name="description" content="SimpleSaber! • A-Frame" />
     
@@ -36,7 +35,7 @@
         <audio id="hitRight" src="/vrapp/menu/fitness/assets/sounds/beatHit.ogg"></audio>
         <!--image assets -->
         <!-- <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"> -->
-        <img id="sechelt" crossorigin="anonymous" src="/vrapp/menu/fitness/handworkout/assets/images/background-galaxy.png">
+        <img id="sechelt" crossorigin="anonymous" src="/vrapp/assets/images/scary_space.png">
         <a-mixin id="cube"
                  class="cubes"
                  geometry="primitive: box"
@@ -47,18 +46,12 @@
         ></a-mixin>
       </a-assets>
       <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
-      <a-entity id="height" text="value: height: 0" position="0 1.2 -1"></a-entity>
 
       <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
       <a-camera look-controls id="playerCamera" log>        
       </a-camera>
       
-      <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
-      <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
-      saber="blue"
-      aabb-collider="objects: .cubes">
-      </a-entity>
-
+      <a-sky id="image-360" rotation="0 317 0" radius="30" src="#sechelt"></a-sky>
       <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
         aabb-collider="objects: .cubes"
                     saber="red"
@@ -92,7 +85,7 @@
                      opacity: 0.5;"
         >
         </a-entity>
-      <a-plane position="0 0 -20" rotation="-90 0 0" width="0" height="40" color="#7BC8A4">
+        <a-plane position="0 0 -20" rotation="-90 0 0" width="0" height="60"  material="transparent:true; color: magenta; opacity: 0.5">
       </a-plane>
     </a-scene>
   </body>
