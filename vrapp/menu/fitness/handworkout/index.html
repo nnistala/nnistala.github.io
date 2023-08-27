@@ -38,11 +38,12 @@
         ></a-mixin>
       </a-assets>
 
-      <a-camera></a-camera>
+      <a-camera look-controls>
+        <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
+      </a-camera>
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
       
-      <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
       
       <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
       aabb-collider="objects: .cubes"
