@@ -12,6 +12,12 @@ AFRAME.registerComponent('scorecounter', {
 
         var entity = document.querySelector('[sound]');
         entity.components.sound.stopSound();
+
+        var position = getUserPosition();
+        if (position) {
+          var heightElement = document.querySelector("#height");
+          heightElement.setAttribute("text", "value", "Height " + position.y);
+        } 
       });
     }
   });

@@ -3,10 +3,11 @@ AFRAME.registerComponent('log', {
     init: function () {
       var stringToLog = this.data;
       console.log(stringToLog);
-
-      var userEntity = document.getElementById('playerCamera');
-    var worldPosition = new THREE.Vector3();
-    userEntity.object3D.getWorldPosition(worldPosition);
-    alert('User height' + worldPosition.y);
     }
 });
+
+function getUserPosition() {
+    var userEntity = document.getElementById('playerCamera');
+    var worldPosition = new THREE.Vector3();
+    return userEntity.object3D.getWorldPosition(worldPosition);
+}
