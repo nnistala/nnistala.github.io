@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/aframe-haptics-component/dist/aframe-haptics-component.min.js"></script>
     
     <!-- import custom javascript files -->
+    <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/index.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeSpawner.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeDestroyer.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeMovement.js"></script>
@@ -42,8 +43,9 @@
         ></a-mixin>
       </a-assets>
       <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
+      <a-entity id="height" text="value: height: 0" position="0 1.2 -1"></a-entity>
 
-      <a-camera look-controls>        
+      <a-camera look-controls id="playerCamera" log>        
       </a-camera>
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
