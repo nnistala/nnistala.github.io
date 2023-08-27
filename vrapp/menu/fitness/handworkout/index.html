@@ -26,7 +26,7 @@
     <script src="https://rdub80.github.io/aframe-gui/examples/js/gui-env.js" type="text/javascript"></script>
   </head>
   <body>
-    <a-scene 
+    <a-scene id="workoutScene"
              renderer="antialias: true"
              pool__cubes="mixin: cube; size: 10; dynamic: true" 
              scorecounter>
@@ -41,11 +41,12 @@
                  class="cubes"
                  geometry="primitive: box"
                  position="0 1 -25"
-                 scale="0.4 0.4 0.4"
+                 scale="0.2 0.2 0.2"
                  cubemovement
                  cubedestroyer
         ></a-mixin>
       </a-assets>
+      <a-entity id="gameover-model"></a-entity>
       <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
       <a-entity id="height" text="value: height: 0" position="0 1.2 -1"></a-entity>
 
@@ -54,20 +55,36 @@
       </a-camera>
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
-      <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
+      <!-- <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
+      color="red"
       saber="blue"
       aabb-collider="objects: .cubes">
-      </a-entity>
+        <a-box id="redSaber" 
+          color="red" 
+          width="0.05" 
+          height="0.05" 
+          depth="0.05"
+          saber="blue"
+          position="0 -0.2 0"
+        ></a-box>
+      </a-entity> -->
 
       <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
         aabb-collider="objects: .cubes"
                     saber="red"
+                    color="red" 
+                    height="0.1"
+                    width="0.1"
                     raycaster="objects: [gui-interactable]">
+          
         </a-entity>
         <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
   
         <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
             saber="blue"
+            color="blue" 
+            height="0.1"
+            width="0.1"
             aabb-collider="objects: .cubes"
             raycaster="objects: [gui-interactable]">
         </a-entity>
