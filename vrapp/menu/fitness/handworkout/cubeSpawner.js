@@ -22,10 +22,10 @@ AFRAME.registerComponent('cubespawner', {
     this.zPos = -25;
     this.isKids = false;
     this.basicWorkOutPlan = [
-      { type: 'leftHandTopStretch', position: { x: -0.5, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'left', workOutType: 'sameHand' },
-      { type: 'rightHandTopStretch', position: { x: 0.5, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'right', workOutType: 'sameHand' },
-      { type: 'leftHandCrossStretch', position: { x: 0.5, y: 0.5, z: this.zPos }, count: 2, handCount: 1, handDirection: 'left', workOutType: 'crossHand' },
-      { type: 'rightHandCrossStretch', position: { x: -0.5, y: 0.1, z: this.zPos }, count: 2, handCount: 1, handDirection: 'right', workOutType: 'crossHand' },
+      { type: 'leftHandTopStretch', position: { x: -0.2, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'left', workOutType: 'sameHand' },
+      { type: 'rightHandTopStretch', position: { x: 0.2, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'right', workOutType: 'sameHand' },
+      { type: 'leftHandCrossStretch', position: { x: 0.2, y: 0.1, z: this.zPos }, count: 2, handCount: 1, handDirection: 'left', workOutType: 'crossHand' },
+      { type: 'rightHandCrossStretch', position: { x: -0.2, y: 0.1, z: this.zPos }, count: 2, handCount: 1, handDirection: 'right', workOutType: 'crossHand' },
       { type: 'twoHandsTopStretch', position: { x: 0, y: 2, z: this.zPos }, count: 1, handCount: 2, handDirection: 'both', workOutType: 'sameHand' },
       { type: 'twoHandsBottomStretch', position: { x: 0, y: 0.1, z: this.zPos }, count: 1, handCount: 2, handDirection: 'both', workOutType: 'sameHand' },
     ];
