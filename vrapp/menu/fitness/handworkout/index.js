@@ -18,6 +18,8 @@ function startPlay() {
 
   var scene = document.querySelector('a-scene');
   scene.setAttribute('cubeSpawner');
+
+  enterVRMode();
 }
 
 function enterVRMode() {
