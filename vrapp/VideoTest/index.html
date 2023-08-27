@@ -163,5 +163,13 @@
         window.open("/vrapp/menu/index.html", "_self");
     }
 
+    window.addEventListener('vrcontrollerconnected', function (event) {
+      const controller = event.detail;
+      controller.addEventListener('triggerpull', function (event) {
+            alert("heyy!!");
+        });
+    });
+    alert("heyy!!");
+
   </script>
 </html>
