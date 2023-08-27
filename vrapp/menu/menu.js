@@ -1,3 +1,15 @@
+
+AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+      var lastIndex = -1;
+      var COLORS = ['red', 'green', 'blue'];
+      this.el.addEventListener('hover', function (evt) {
+        console.log('hover');
+        alert('hover');
+      });
+    }
+  });
+
 function onMenuItemClick(event) {
   console.log(event);
   const id = event.srcElement.id;
@@ -20,3 +32,4 @@ function onMenuItemClick(event) {
 function showConfirmExit() {}
 
 function confirmExit() {}
+
