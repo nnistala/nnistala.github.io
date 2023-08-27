@@ -1,4 +1,4 @@
-AFRAME.registerComponent('log', {
+/*AFRAME.registerComponent('log', {
     schema: {type: 'string'},
 
     init: function () {
@@ -17,4 +17,23 @@ function turnOnBgm(){
 function turnOffBgm(){
     $("#bgmaudio").attr('src','');
     $("#bgmsound").attr('src','');
+}*/
+
+$(function() {
+    ;
+    setTimeout(() => {
+        $('#idIntroLogoScene').hide();
+        $("#idMainMenuScene").show();
+    }, 5000);
+
+});
+
+function openTherapySubMenu(){
+    $("#idMainMenuScene").hide();
+    $("#idSmartTherapyScene").show();
+}
+
+function openFitnessSubMenu(){
+    $("#idMainMenuScene").hide();
+    $('#idHandTrackingScene').show();
 }
