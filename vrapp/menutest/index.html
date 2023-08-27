@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A-Frame Scene Navigation</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Scene 1 -->
+      <a-assets>
+        <img id="scene1" src="/vrapp/menu/assets/images/Forest_bg.png">
+      </a-assets>
+
+      <a-sky src="#scene1" id="scene1-sky"></a-sky>
+
+      <!-- Scene 2 -->
+      <a-assets>
+        <img id="scene2" src="/vrapp/menu/assets/images/SnowMountains_bg_nologo.png">
+      </a-assets>
+
+      <a-sky src="#scene2" id="scene2-sky" visible="false"></a-sky>
+
+      <!-- Scene 3 -->
+      <a-assets>
+        <img id="scene3" src="/vrapp/menu/assets/images/MountainHouses_bg_nologo.png">
+      </a-assets>
+
+      <a-sky src="#scene3" id="scene3-sky" visible="false"></a-sky>
+
+      <!-- Buttons to switch scenes -->
+      <a-entity
+        position="-2 1 -4"
+        text="value: Click to switch to Scene 1; align: center; color: white"
+        event-set__click="_target: #scene1-sky; visible: true; _target: #scene2-sky; visible: false; _target: #scene3-sky; visible: false"
+        material="color: #333"
+        geometry="primitive: plane; width: 2; height: 0.5"
+        cursor-listener
+      ></a-entity>
+
+      <a-entity
+        position="0 1 -4"
+        text="value: Click to switch to Scene 2; align: center; color: white"
+        event-set__click="_target: #scene1-sky; visible: false; _target: #scene2-sky; visible: true; _target: #scene3-sky; visible: false"
+        material="color: #333"
+        geometry="primitive: plane; width: 2; height: 0.5"
+        cursor-listener
+      ></a-entity>
+
+      <a-entity
+        position="2 1 -4"
+        text="value: Click to switch to Scene 3; align: center; color: white"
+        event-set__click="_target: #scene1-sky; visible: false; _target: #scene2-sky; visible: false; _target: #scene3-sky; visible: true"
+        material="color: #333"
+        geometry="primitive: plane; width: 2; height: 0.5"
+        cursor-listener
+      ></a-entity>
+
+      <!-- Cursor for clicking -->
+      <a-entity
+        id="cursor"
+        cursor="rayOrigin: mouse"
+        raycaster="objects: [cursor-listener]"
+        position="0 0 -1"
+        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+        material="color: white; shader: flat"
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
