@@ -9,6 +9,9 @@ AFRAME.registerComponent('scorecounter', {
         scoreBoard.setAttribute('text', 'value',  newScore);
         // this.el.components.haptics.pulse();
         event.srcElement.components.haptics.pulse();
+
+        var entity = document.querySelector('[sound]');
+        entity.components.sound.stopSound();
       });
     }
   });

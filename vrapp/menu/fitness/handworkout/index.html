@@ -26,6 +26,10 @@
              cubespawner
              scorecounter>
       <a-assets>
+        <!-- Sount assets--> 
+        <audio id="hitLeft" src="/vrapp/menu/fitness/assets/sounds/beathit.ogg" preload="auto"></audio>
+        <audio id="hitRight" src="/vrapp/menu/fitness/assets/sounds/beathit.ogg" preload="auto"></audio>
+        <!--image assets -->
         <!-- <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"> -->
         <img id="sechelt" crossorigin="anonymous" src="/vrapp/menu/fitness/handworkout/assets/images/background-galaxy.png">
         <a-mixin id="cube"
@@ -49,10 +53,13 @@
       aabb-collider="objects: .cubes"
                   saber="red">
       </a-entity>
+      <a-entity id="leftSound" sound="src: #hitLeft"></a-entity>
+
       <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
           saber="blue"
           aabb-collider="objects: .cubes">
       </a-entity>
+      <a-entity id="rightSound" sound="src: #hitRight"></a-entity>
     </a-scene>
   </body>
 </html>
