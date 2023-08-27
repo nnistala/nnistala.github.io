@@ -21,8 +21,6 @@
         <!-- Import Fitness HandWorkout files -->
         
 
-        <!-- To load in VR mode by default -->
-        <script src='https://cdn.jsdelivr.net/npm/webvr-polyfill@latest/build/webvr-polyfill.js'></script>
 
         <script type="importmap">
         {
@@ -34,7 +32,10 @@
         </script>
     </head>
   <body>
-
+    <!-- Intro Logo Scene -->
+    <a-scene gui-env id="idIntroLogoScene" style="display: none">
+        
+    </a-scene>
 
     <!-- Main Menu Scene -->
     <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env id="idMainMenuScene">
