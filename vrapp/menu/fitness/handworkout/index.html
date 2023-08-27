@@ -49,19 +49,27 @@
       <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
       <a-entity id="height" text="value: height: 0" position="0 1.2 -1"></a-entity>
 
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
       <a-camera look-controls id="playerCamera" log>        
       </a-camera>
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
+      <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
+      saber="blue"
+      aabb-collider="objects: .cubes">
+      </a-entity>
+
       <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
         aabb-collider="objects: .cubes"
-                    saber="red">
+                    saber="red"
+                    raycaster="objects: [gui-interactable]">
         </a-entity>
         <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
   
         <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
             saber="blue"
-            aabb-collider="objects: .cubes">
+            aabb-collider="objects: .cubes"
+            raycaster="objects: [gui-interactable]">
         </a-entity>
 
         <!-- <a-gui-button
