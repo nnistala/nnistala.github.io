@@ -7,25 +7,36 @@
     
     <!-- the aframe standard library -->
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- adding physics -->
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="https://unpkg.com/aframe-haptics-component/dist/aframe-haptics-component.min.js"></script>
     
     <!-- import custom javascript files -->
+    <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/index.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeSpawner.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeDestroyer.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/cubeMovement.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/saber.js"></script>
     <script type="text/javascript" src="/vrapp/menu/fitness/handworkout/scoreCounter.js"></script>
+
+    <!-- GUI package-->
+    <script src="https://rdub80.github.io/aframe-gui/examples/js/aframe-gui.js" type="text/javascript"></script>
+    <script src="https://rdub80.github.io/aframe-gui/examples/js/gui-env.js" type="text/javascript"></script>
     
   </head>
   <body>
-    <a-scene renderer="antialias: true"
+    <a-scene 
+             renderer="antialias: true"
              pool__cubes="mixin: cube; size: 10; dynamic: true" 
-             cubespawner
+             
              scorecounter>
       <a-assets>
+        <!-- Sount assets--> 
+        <audio id="hitLeft" src="/vrapp/menu/fitness/assets/sounds/beatHit.ogg"></audio>
+        <audio id="hitRight" src="/vrapp/menu/fitness/assets/sounds/beatHit.ogg"></audio>
+        <!--image assets -->
         <!-- <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"> -->
         <img id="sechelt" crossorigin="anonymous" src="/vrapp/menu/fitness/handworkout/assets/images/background-galaxy.png">
         <a-mixin id="cube"
@@ -37,21 +48,51 @@
                  cubedestroyer
         ></a-mixin>
       </a-assets>
+      <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
+      <a-entity id="height" text="value: height: 0" position="0 1.2 -1"></a-entity>
 
-      <a-camera></a-camera>
+      <a-camera look-controls id="playerCamera" log>        
+      </a-camera>
       
       <a-sky id="image-360" rotation="0 180 0" radius="30" src="#sechelt"></a-sky>
-      
-      <a-entity id="score" text="value: Score: 0" position="0 2.2 -1"></a-entity>
-      
       <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
-      aabb-collider="objects: .cubes"
-                  saber="red">
-      </a-entity>
-      <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
-          saber="blue"
-          aabb-collider="objects: .cubes">
-      </a-entity>
+        aabb-collider="objects: .cubes"
+                    saber="red">
+        </a-entity>
+        <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
+  
+        <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
+            saber="blue"
+            aabb-collider="objects: .cubes">
+        </a-entity>
+
+        <a-gui-button
+        width="2" 
+        height="0.7" 
+        base-depth="0.025" 
+        depth="0.1"
+        id="startPlay"
+        value="Start"	
+        font-size="0.25"
+        font-color="black"
+        font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
+        active-color="red"
+        hover-color="yellow"
+        border-color="white"
+        focus-color="black"
+        background-color="orange"
+        position="0 0.5 -5"
+        bevel="true"
+        gui-interactable="clickAction: startPlay;"
+
+      >
+    </a-gui-button>
+  
+      <a-plane position="0 0 -20" rotation="-90 0 0" width="0" height="40" color="#7BC8A4">
+        
+      </a-plane>
+      
+      
     </a-scene>
   </body>
 </html>
