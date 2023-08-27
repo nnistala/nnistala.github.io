@@ -22,15 +22,18 @@ function turnOffBgm(){
 $(function() {
 
     setTimeout(() => {
+        $('#idIntroLogoScene').hide();
         $("#idMainMenuScene").show();
     }, 5000);
 
 });
 
 function openTherapySubMenu(){
+    $("#idMainMenuScene").hide();
     $("#idSmartTherapyScene").show();
 }
 
 function openFitnessSubMenu(){
-  $('#idHandTrackingScene').show();
+    $("#idMainMenuScene").show();
+    $('#idHandTrackingScene').show();
 }
