@@ -69,31 +69,35 @@
 
       <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
                     raycaster="objects: [gui-interactable]">
+                <a-entity position="0 0.5 -0.5"
+                rotation="-45 0 0">
                     <a-box id="redSaber" 
                     color="red" 
-                    width="0.1" 
-                    height="0.3"
+                    width="0.01" 
+                    height="0.05"
                     depth="0.05"
                     saber="red"
                     position="0 -0.2 0"
-                    aabb-collider="objects: .cubes"
+                    aabb-collider="objects: .cubes; debug:true"
                   ></a-box>
-          
+                </a-entity>
         </a-entity>
         <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
   
         <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
             raycaster="objects: [gui-interactable]">
-            <a-box id="blueSaber" 
-              color="blue" 
-              width="0.1" 
-              height="0.3"
-              height="0.05" 
-              depth="0.05"
-              saber="blue"
-              position="0 -0.2 0"
-              aabb-collider="objects: .cubes"
-            ></a-box>
+            <a-entity position="0 0.5 -0.5"
+            rotation="-45 0 0">
+              <a-box id="blueSaber" 
+                color="blue" 
+                width="0.01" 
+                height="0.05"
+                depth="0.05"
+                saber="blue"
+                position="0 -0.2 0"
+                aabb-collider="objects: .cubes; debug:true"
+              ></a-box>
+            </a-entity>
         </a-entity>
 
         <a-entity
