@@ -18,8 +18,8 @@
   </head>
   <body>
     <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env>
-      <a-entity log="entity rendererd!"
-        environment="preset: starry;
+      <!-- <a-entity log="entity rendererd!"
+        environment="preset: forest;
                     groundTexture: walkernoise;
                     ground: hills;
                     groundColor: #00b5ec;
@@ -27,18 +27,45 @@
                     skyColor: #33ac6a;
                     skyType: atmosphere;
                     lighting: distant;
-                    dressing: pyramids;
+                    dressing: trees;
                     shadow: true;
                     fog:0.5;
                     grid: lines">
                    
-        </a-entity>
+        </a-entity> -->
+
+        <a-assets>
+          <img id="menuBackgroundImg" crossorigin="anonymous" src="assets/images/Forest_bg.png">
+        </a-assets>
+
+        <a-sky id="skybgimg" rotation="0 180 0" radius="30" src="#menuBackgroundImg"></a-sky>
 
         <a-gui-flex-container
             flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1"
-            opacity="0.5" width="3.5" height="5" panel-color="#000" panel-rounded="0.4"
+            opacity="0.4" width="3.5" height="5" panel-color="rgba(255, 255, 255, 0.3)" panel-rounded="0.4" transparent= "true"
             position="0 3 -5" rotation="0 0 0"
             >
+
+            <a-gui-label
+                width="3" height="0.75"
+                value="Therapy"
+                font-size="0.25"
+                letter-spacing="0"
+                margin="0 0 0.5 0"
+                position="0 1 0"
+                panel-rounded="0.4"
+                font-family="/vrapp/menu/assets/fonts/Raleway-Bold.ttf"
+
+                font-color="white"
+                active-color="white"
+                hover-color="white"
+                focus-color="white"
+                opacity= "0.4"
+
+                gui-interactable="clickAction: buttonActionFunction;"
+
+            ></a-gui-label>
+
             <a-gui-button
                 width="3" height="0.75"
                 value="Therapy"
@@ -47,8 +74,16 @@
                 margin="0 0 0.5 0"
                 position="0 1 0"
                 panel-rounded="0.4"
-                font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
-                onclick="buttonActionFunction"
+                font-family="/vrapp/menu/assets/fonts/Raleway-Regular.ttf"
+                
+
+                font-color="white"
+                active-color="white"
+                hover-color="white"
+                border-color="transparent"
+                focus-color="white"
+                background-color="rgba(255, 255, 255, 0.3)"
+                opacity= "0.4"
             >
             </a-gui-button>
             <a-gui-button
@@ -60,7 +95,7 @@
                 margin="0 0 0.5 0"
                 position="0 0 0"
                 panel-rounded="0.4"
-                font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
+                font-family="/vrapp/menu/assets/fonts/Raleway-Regular.ttf"
             >           >
             </a-gui-button>
              <a-gui-button
@@ -71,7 +106,7 @@
                 letter-spacing="0"
                 margin="0 0 0.5 0"
                 position="0 -1 0"
-                font-family="/vrapp/menu/assets/fonts/DiplomataSC-Regular.ttf"
+                font-family="/vrapp/menu/assets/fonts/Raleway-Regular.ttf"
             >
             </a-gui-button>
 
@@ -82,16 +117,15 @@
     <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
     <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
 
-    <!-- Camera + cursor. -->
-    <a-entity id="cameraRig">
+    <a-entity id="cameraRig" position="0 0 2">
       <a-camera look-controls wasd-controls>
-      </a-camera> <!-- /camera -->
+      </a-camera>
     </a-entity>
 
     </a-scene>
   </body>
   <script type="text/javascript">
-        window.buttonActionFunction= function(){
+        function buttonActionFunction(){
             location.href = "/vrapp/menutest/index.html";
           }
   </script>
