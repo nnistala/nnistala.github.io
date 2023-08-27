@@ -42,11 +42,32 @@
 
         <a-gui-flex-container
             flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1"
-            opacity="0.4" width="3.5" height="5" panel-color="rgba(255, 255, 255, 0.3)" panel-rounded="0.4" transparent= "true"
+            opacity="0.5" width="3.5" height="5" panel-color="rgba(255, 255, 255, 0.3)" panel-rounded="0.4" transparent= "true"
             position="0 3 -5" rotation="0 0 0"
             >
 
-            <a-gui-label
+            <a-entity
+              gui-item="type: label;
+                        width: 3;
+                        height: 0.75;
+                        margin: 0 0 0.5 0;
+                        position: 0 1 0;"
+              gui-label="value: Therapy;
+                         font-family: /vrapp/menu/assets/fonts/Raleway-Bold.ttf;
+                         font-size: 0.25;
+                         panel-rounded: 0.4;
+                         font-color: white;
+                         active-color: white;
+                         hover-color: white;
+                         focus-color: white;
+                         opacity: 0.4;"
+              gui-interactable="clickAction: buttonActionFunction;"
+            >
+            </a-entity>
+
+
+
+            <!-- <a-gui-label
                 width="3" height="0.75"
                 value="Therapy"
                 font-size="0.25"
@@ -64,7 +85,7 @@
 
                 gui-interactable="clickAction: buttonActionFunction"
 
-            ></a-gui-label>
+            ></a-gui-label> -->
 
             <a-gui-button
                 width="3" height="0.75"
