@@ -36,7 +36,9 @@ function getRandomNumber(value, offset) {
       
       let cubeElArr = [];
       for (let i = 0; i < 2; i++) {
-        cubeElArr.push(this.el.components.pool__cubes.requestEntity());
+        var element = this.el.components.pool__cubes.requestEntity();
+        element.setAttribute("id", `${i}`);
+        cubeElArr.push(element);
       }
 
       var positionX, positionY, positionZ = -25;
