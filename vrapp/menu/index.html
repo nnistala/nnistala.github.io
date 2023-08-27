@@ -61,6 +61,7 @@
                      hover-color: white;
                      focus-color: white;
                      opacity: 0.4;"
+          onhover="onHover"
           gui-interactable="clickAction: openTherapyMenu;"
         >
         </a-entity>
@@ -192,6 +193,11 @@
     }
     function exitTheApp(){
       window.close();
+    }
+
+    function onHover(ev) {
+      console.log('hovered');
+      alert('hover');
     }
   </script>
 </html>
