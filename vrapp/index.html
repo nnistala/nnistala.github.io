@@ -157,9 +157,9 @@
       </a-gui-flex-container>
 
       <!-- Mouse cursor so we can click on the scene with mouse or touch. -->
-      <a-entity cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
-      <a-entity laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
-      <a-entity laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: [gui-interactable]"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: [gui-interactable]"></a-entity>
 
       <a-entity id="cameraRig">
         <a-camera look-controls wasd-controls>
