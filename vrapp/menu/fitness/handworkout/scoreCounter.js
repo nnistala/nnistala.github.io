@@ -8,7 +8,7 @@ AFRAME.registerComponent('scorecounter', {
         var newScore = `Score: ${score}`;
         scoreBoard.setAttribute('text', 'value',  newScore);
         // this.el.components.haptics.pulse();
-        event.srcElement.components.haptics.pulse
+        event.srcElement.components.haptics.pulse();
       });
     }
   });
