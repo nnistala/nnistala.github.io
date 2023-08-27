@@ -71,57 +71,29 @@
             aabb-collider="objects: .cubes"
             raycaster="objects: [gui-interactable]">
         </a-entity>
+        <a-entity
+          id="startPlay"
+          position="0 0.5 -5"
+          gui-item="type: button;
+                    width: 2;
+                    height: 0.7;"
 
-        <!-- <a-gui-button
-        width="2" 
-        height="0.7" 
-        base-depth="0.025" 
-        depth="0.1"
-        id="startPlay"
-        value="Start"	
-        font-size="0.25"
-        font-color="black"
-        font-family="/vrapp/assets/fonts/Realized.ttf"
-        active-color="red"
-        hover-color="yellow"
-        border-color="white"
-        focus-color="black"
-        background-color="orange"
-        position="0 0.5 -5"
-        bevel="true"
-        gui-interactable="clickAction: startPlay;"
-
-      >
-    </a-gui-button> -->
-
-    <a-entity
-    id="startPlay"
-    position="0 0.5 -5"
-    gui-item="type: button;
-              width: 2;
-              height: 0.7;"
-
-    gui-interactable="clickAction: startPlay;"
-    gui-button="value: Start;
-               font-family: /vrapp/assets/fonts/Realized.ttf;
-               font-size: 0.25;
-               font-size:0.25;
-               font-color:black;
-               border-radius: 2;
-               active-color: #604287;
-               hover-color: #604287;
-               focus-color: #604287;
-               background-color:orange;
-               opacity: 0.5;"
-  >
-  </a-entity>
-
-  
+          gui-interactable="clickAction: startPlay;"
+          gui-button="value: Start;
+                     font-family: /vrapp/assets/fonts/Realized.ttf;
+                     font-size: 0.25;
+                     font-size:0.25;
+                     font-color:black;
+                     border-radius: 2;
+                     active-color: #604287;
+                     hover-color: #604287;
+                     focus-color: #604287;
+                     background-color:orange;
+                     opacity: 0.5;"
+        >
+        </a-entity>
       <a-plane position="0 0 -20" rotation="-90 0 0" width="0" height="40" color="#7BC8A4">
-        
       </a-plane>
-      
-      
     </a-scene>
   </body>
 </html>

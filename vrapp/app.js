@@ -1,4 +1,4 @@
-AFRAME.registerComponent('log', {
+/*AFRAME.registerComponent('log', {
     schema: {type: 'string'},
 
     init: function () {
@@ -17,4 +17,20 @@ function turnOnBgm(){
 function turnOffBgm(){
     $("#bgmaudio").attr('src','');
     $("#bgmsound").attr('src','');
+}*/
+
+$(function() {
+
+    setTimeout(() => {
+        $("#idMainMenuScene").show();
+    }, 5000);
+
+});
+
+function openTherapySubMenu(){
+    $("#idSmartTherapyScene").show();
+}
+
+function openFitnessSubMenu(){
+  $('#idHandTrackingScene').show();
 }
