@@ -19,7 +19,7 @@
     </script>
   </head>
   <body>
-    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse" gui-env>
+    <a-scene log="scene rendererd!" cursor="rayOrigin: mouse">
       <a-assets>
         <img id="menuBackgroundImg" crossorigin="anonymous" src="/vrapp/menu/assets/images/zenMode.png">
       </a-assets>
@@ -162,6 +162,13 @@
     function backtoMainMenu(){
         window.open("/vrapp/menu/index.html", "_self");
     }
+
+    window.addEventListener('vrcontrollerconnected', function (event) {
+      const controller = event.detail;
+      controller.addEventListener('triggerpull', function (event) {
+            alert("heyy!!");
+        });
+    });
 
   </script>
 </html>
