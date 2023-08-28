@@ -107,19 +107,6 @@
                     raycaster="objects: [gui-interactable]"
                     saber="red"
                     aabb-collider="objects: .cubes;">
-                <a-entity position="0 0 -0.5"
-                rotation="-45 0 0">
-                    <a-box id="redSaber" 
-                    color="red" 
-                    width="0.1" 
-                    height="0.2"
-                    depth="0.05"
-                    saber="red"
-                    position="0 -0.2 0"
-                    saber="red"
-                    aabb-collider="objects: .cubes;"
-                  ></a-box>
-                </a-entity>`
         </a-entity>
         <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
         <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
