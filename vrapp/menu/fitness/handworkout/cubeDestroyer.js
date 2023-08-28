@@ -15,11 +15,6 @@ AFRAME.registerComponent('cubedestroyer', {
 
         if(cubesGenerated !== null && cubesGenerated != undefined) {
           if((cubesGenerated - cubeHits) >= maxCubeMisses) {
-            const sceneElement = document.querySelector('#workoutScene');
-            if(sceneElement) {
-              sceneElement.removeAttribute('cubeSpawner');
-            }
-
             showGameOver();
           }
         }
