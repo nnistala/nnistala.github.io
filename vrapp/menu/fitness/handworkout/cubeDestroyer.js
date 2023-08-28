@@ -8,15 +8,9 @@ AFRAME.registerComponent('cubedestroyer', {
         this.el.sceneEl.components.pool__cubes.returnEntity(this.el);
       }
 
-      if(window && window.sessionStorage) {
-        let cubesGenerated = +window.sessionStorage.getItem('cubesGenerated');
-        let maxCubeMisses = +window.sessionStorage.getItem('maxCubeMisses');
-        let cubeHits = +window.sessionStorage.getItem('cubeHits');
-
-        if(cubesGenerated !== null && cubesGenerated != undefined) {
-          if((cubesGenerated - cubeHits) >= maxCubeMisses) {
-            showGameOver();
-          }
+      if(cubesGenerated !== null && cubesGenerated != undefined) {
+        if((cubesGenerated - cubeHits) >= maxCubeMisses) {
+          showGameOver();
         }
       }
     }

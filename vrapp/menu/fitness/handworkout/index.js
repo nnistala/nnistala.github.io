@@ -1,4 +1,9 @@
 var startTimerId;
+var isGameOver = false;
+var cubesGenerated = 0;
+var cubeHits = 0
+const maxCubeMisses = 12;
+var score = 0;
 
 AFRAME.registerComponent('log', {
     schema: {type: 'string'},
@@ -15,21 +20,32 @@ function getUserPosition() {
 }
 
 function startPlay() {
-  window.sessionStorage.clear();
+  isGameOver = false;
+  cubesGenerated = 0;
+  cubeHits = 0;
+  score = 0;
+  window.localStorage.clear();
 
+  resetScore();
   var startBtn = document.querySelector('#startPlay');
   if(startBtn) {
-    startBtn.remove(); 
+    // startBtn.remove(); 
+    startBtn.setAttribute('visible', 'false');
   }
 
   var mainMenuBtn = document.querySelector('#mainMenu');
   if(mainMenuBtn) {
-    mainMenuBtn.remove();
+    mainMenuBtn.setAttribute('visible', 'false');
+  }
+
+  var exitBtn = document.querySelector('#exit');
+  if(exitBtn) {
+    exitBtn.setAttribute('visible', 'false');
   }
 
   var replayBtn = document.querySelector('#replay');
   if(replayBtn) {
-    replayBtn.remove();
+    replayBtn.setAttribute('visible', 'false');
   }
 
   var scene = document.querySelector('a-scene');
@@ -43,6 +59,7 @@ function enterVRMode() {
 }
 
 function showGameOver() {
+  isGameOver = true;
   const sceneElement = document.querySelector('#workoutScene');
   if(sceneElement) {
     sceneElement.removeAttribute('cubeSpawner');
@@ -50,20 +67,13 @@ function showGameOver() {
   }
 
   clearInterval(startTimerId);
-  let element = document.querySelector('#gameover');
-  let exit = document.querySelector('#exit');
-  let replay = document.querySelector('#replay');
-  // let finalscore = document.querySelector('#finalscore');
-  
 
-  element.setAttribute('height', 0.5);
-  element.setAttribute('width', 1);
-  element.setAttribute('position', {x: -0.5, y : 1, z: -1});
-  element.setAttribute('visible', true);
+  let exit = document.querySelector('#exit');
 
   exit.setAttribute('visible', true);
   exit.setAttribute('position', {x: 0.5, y: 0.5, z: -5});
 
+  let replay = document.querySelector('#replay');
   if(replay) {
     replay.setAttribute('visible', true);
     replay.setAttribute('position', { x: 0.5, y: 1, z: -5 });
@@ -83,8 +93,8 @@ function exitFitness() {
 function startGameTimer() {
   startTimerId = setTimeout(function () {
     clearInterval(startTimerId);
-    location.href = 'score.html';
-  }, 1 * 60 * 1000);
+    showGameOver();
+  }, 2 * 60 * 1000);
 }
 
 function backToMainMenu() {
@@ -92,6 +102,9 @@ function backToMainMenu() {
 }
 
 function replay() {
-
   startPlay();
+}
+function resetScore() {
+  var scoreElement = document.querySelector('#score');
+  scoreElement.setAttribute('text', 'value', `Score: 0`);
 }

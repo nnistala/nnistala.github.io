@@ -21,15 +21,14 @@ AFRAME.registerComponent('cubespawner', {
     this.basicPlan = true;
     this.zPos = -25;
     this.isKids = false;
-    this.maxMisses = 10;
-    this.generated = 0;
+    cubesGenerated = 0;
     this.basicWorkOutPlan = [
-      { type: 'leftHandTopStretch', position: { x: -0.2, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'left', workOutType: 'sameHand' },
-      { type: 'rightHandTopStretch', position: { x: 0.2, y: 2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'right', workOutType: 'sameHand' },
-      { type: 'leftHandCrossStretch', position: { x: 0.2, y: 0.1, z: this.zPos }, count: 2, handCount: 1, handDirection: 'left', workOutType: 'crossHand' },
-      { type: 'rightHandCrossStretch', position: { x: -0.2, y: 0.1, z: this.zPos }, count: 2, handCount: 1, handDirection: 'right', workOutType: 'crossHand' },
-      { type: 'twoHandsTopStretch', position: { x: 0, y: 2, z: this.zPos }, count: 1, handCount: 2, handDirection: 'both', workOutType: 'sameHand' },
-      { type: 'twoHandsBottomStretch', position: { x: 0, y: 0.1, z: this.zPos }, count: 1, handCount: 2, handDirection: 'both', workOutType: 'sameHand' },
+      { type: 'leftHandTopStretch', position: { x: -0.2, y: 2.2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'left', workOutType: 'sameHand' },
+      { type: 'rightHandTopStretch', position: { x: 0.2, y: 2.2, z: this.zPos }, count: 1, handCount: 1, handDirection: 'right', workOutType: 'sameHand' },
+      { type: 'leftHandCrossStretch', position: { x: 0.2, y: 0.2, z: this.zPos }, count: 2, handCount: 1, handDirection: 'left', workOutType: 'crossHand' },
+      { type: 'rightHandCrossStretch', position: { x: -0.2, y: 0.2, z: this.zPos }, count: 2, handCount: 1, handDirection: 'right', workOutType: 'crossHand' },
+      { type: 'twoHandsTopStretch', position: { x: 0, y: 2.2, z: this.zPos }, count: 1, handCount: 2, handDirection: 'both', workOutType: 'sameHand' },
+      { type: 'twoHandsBottomStretch', position: { x: 0, y: 0.2, z: this.zPos }, count: 1, handCount: 2, handDirection: 'both', workOutType: 'sameHand' },
     ];
 
     this.handBlockColors = {
@@ -37,16 +36,15 @@ AFRAME.registerComponent('cubespawner', {
       right: 'blue',
     };
 
-    if(window && window.sessionStorage) {
-      window.sessionStorage.setItem('cubesGenerated', this.generated);
-      window.sessionStorage.setItem('maxCubeMisses', this.maxMisses);
-      window.sessionStorage.setItem('cubeHits',0);
-    }
   },
 
   tick: function (time, timeDelta) {
-    if (this.timeStep < 2000) {
+    if (this.timeStep < 1500) {
       this.timeStep += timeDelta;
+      return;
+    }
+
+    if(isGameOver) {
       return;
     }
 
@@ -76,18 +74,14 @@ AFRAME.registerComponent('cubespawner', {
           cubeEl.setAttribute('material', `color: ${cubeColor}`);
           cubeEl.setAttribute("id", ``);
           cubeEl.setAttribute('class', 'cubes');
-          cubeEl.setAttribute('height', '10');
-          cubeEl.setAttribute('width', '10');
+          cubeEl.setAttribute('height', '20');
+          cubeEl.setAttribute('width', '20');
 
           cubeEl.play();  
-          this.generated++;
+          cubesGenerated++;
         } else if (plan.handCount == 2) {
           this.generateMultipleCubesBasicPlan();
         }
-      }
-
-      if(window && window.sessionStorage) {
-        window.sessionStorage.setItem('cubesGenerated', this.generated);
       }
 
       this.index = (this.index + 1) % this.basicWorkOutPlan.length;
@@ -116,7 +110,7 @@ AFRAME.registerComponent('cubespawner', {
       cubeEl.play();
     });
 
-    this.generated = this.generated + 2;
+    cubesGenerated+=2;
   },
 
   generateTopDownCubes: function () {

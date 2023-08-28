@@ -5,7 +5,7 @@
     <meta name="description" content="SimpleSaber! • A-Frame" />
     
     <!-- the aframe standard library -->
-    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- adding physics -->
@@ -40,20 +40,19 @@
                  class="cubes"
                  geometry="primitive: box"
                  position="0 1 -25"
-                 scale="0.2 0.2 0.2"
+                 scale="0.4 0.4 0.4"
                  cubemovement
                  cubedestroyer
-                 data-aabb-collider-dynamic
         ></a-mixin>
       </a-assets>
-      <a-entity id="gameover" visible="false" position="2 1.5 -5" width="3">
+      <!-- <a-entity id="gameover" visible="false" position="2 1.5 -5" width="3"> -->
         <a-entity
           id="replay"
           visible="false"
-          position="1 1.5 -5"
+          position="1 2 -5"
           gui-item="type: button;
                     width: 3;
-                    height: 0.7;"
+                    height: 0.5;"
         gui-interactable="clickAction: replay;"
         gui-button="value: Replay;
                    font-family: /vrapp/assets/fonts/Realized.ttf;
@@ -72,10 +71,10 @@
         <a-entity
           id="exit"
           visible="false"
-          position="0.5 1.5 -5"
+          position="0.5 0.5 -5"
           gui-item="type: button;
                     width: 3;
-                    height: 0.7;"
+                    height: 0.5;"
           gui-interactable="clickAction: exitFitness;"
           gui-button="value: Exit;
                      font-family: /vrapp/assets/fonts/Realized.ttf;
@@ -91,7 +90,7 @@
                      onclick: exitFitness"
         >
         </a-entity>
-      </a-entity>
+      <!-- </a-entity> -->
       <a-plane position="-1 2 -1" width="0.5" height="0.1" material=" color:magenta; opacity: 0.5">
         <a-entity id="score" text="value: Score: 0" position="0.4"></a-entity>
       </a-plane>
@@ -103,19 +102,23 @@
       
       <a-sky id="image-360" rotation="0 317 0" radius="30" src="#sechelt"></a-sky>
 
-      <a-entity hand-controls="left"  haptics="events: sabercollided; dur: 1000; force: 0.5"
-                    raycaster="objects: [gui-interactable]"
-                    saber="red"
-                    aabb-collider="objects: .cubes;">
+      <a-entity 
+            id="leftController"
+            hand-controls="hand: left; color: red"  
+            haptics="events: sabercollided; dur: 500; force: 0.5"
+            raycaster="objects: [gui-interactable]"
+            saber="red"
+            aabb-collider="objects: .cubes;">
         </a-entity>
         <a-entity id="hitSound" sound="src: #hitLeft" hitSound></a-entity>
-        <a-entity hand-controls="right"  haptics="events: sabercollided; dur: 1000; force: 0.5"
+        <a-entity
+            id="rightController"
+            hand-controls="hand: right; color: blue" haptics="events: sabercollided; dur: 500; force: 0.5"
             raycaster="objects: [gui-interactable]"
             position="0 -0.2 0"
             saber="blue"
             aabb-collider="objects: .cubes;">
         </a-entity>
-
         <a-entity
           id="startPlay"
           position="0 1.5 -5"
@@ -159,7 +162,7 @@
                      opacity: 0.5;"
         >
         </a-entity>
-        <a-plane position="0 0 -20" rotation="-90 0 0" width="0" height="60"  material="transparent:true; color: magenta; opacity: 0.5">
+        <a-plane position="0 0 -20" rotation="-90 0 0" width="1" height="40"  material="transparent:true; color: magenta; opacity: 0.5">
       </a-plane>
     </a-scene>
   </body>
